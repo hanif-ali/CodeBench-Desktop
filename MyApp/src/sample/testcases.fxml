@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane fx:id="mainbp" prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.testcases">
+    <left>
+        <AnchorPane fx:id="left" prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="0.0" prefWidth="10.0">
+                    <children>
+                        <ImageView fitHeight="1057.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@left.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="1057.0" fitWidth="10.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@left.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+    </left>
+    <right>
+        <AnchorPane fx:id="right" prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="200.0" prefWidth="10.0">
+                    <children>
+                        <ImageView fitHeight="631.0" fitWidth="9.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@right.png" />
+                            </image></ImageView>
+                        <ImageView fitHeight="1059.0" fitWidth="10.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@right.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+    </right>
+    <bottom>
+        <AnchorPane fx:id="bottom" prefHeight="10.0" prefWidth="720.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="10.0" prefWidth="720.0">
+                    <children>
+                        <ImageView fitHeight="10.0" fitWidth="1288.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bottom.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="10.0" fitWidth="1288.0" layoutX="919.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bottom.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            </children></AnchorPane>
+    </bottom>
+    <top>
+        <BorderPane fx:id="top" prefHeight="87.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <right>
+                <AnchorPane prefHeight="52.0" prefWidth="250.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="36.0" layoutX="3.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.5" />
+                        <AnchorPane prefHeight="31.0" prefWidth="200.0">
+                            <children>
+                                <Pane prefHeight="47.0" prefWidth="200.0">
+                                    <children>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" layoutX="-32.0" stroke="TRANSPARENT" strokeType="INSIDE" width="281.0" />
+                                    <Button fx:id="addnew" depthTest="DISABLE" layoutX="4.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="209.0" style="-fx-background-color: transparent; -fx-border-color: #A60028; -fx-border-width: 2; -fx-border-radius: 4; -fx-background-insets: 0;" text="Add Assignment" textFill="#a60028">
+                                        <font>
+                                            <Font name="System Bold" size="20.0" />
+                                        </font>
+                                        <padding>
+                                            <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                                        </padding>
+                                    </Button>
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </right>
+            <left>
+                <AnchorPane maxHeight="398.0" prefHeight="0.0" prefWidth="470.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                    <children>
+                        <AnchorPane prefHeight="47.0" prefWidth="379.0">
+                            <children>
+                                <Pane prefHeight="47.0" prefWidth="468.0">
+                                    <children>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="468.0" />
+                                    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="40.0" layoutX="443.0" layoutY="4.0" stroke="TRANSPARENT" strokeType="INSIDE" width="3.0">
+                                        <effect>
+                                            <DropShadow height="33.2" offsetY="5.0" radius="7.800000000000001" spread="0.29" width="0.0">
+                                                <color>
+                                                    <Color opacity="0.10000000149011612" />
+                                                </color>
+                                            </DropShadow>
+                                        </effect>
+                                    </Rectangle>
+                                    </children>
+                                </Pane>
+                                <Label fx:id="assNo" layoutX="12.0" layoutY="11.0" prefHeight="30.0" prefWidth="405.0" text="Create a New Assignment">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                    </children>
+                </AnchorPane>
+            </left>
+            <bottom>
+                <AnchorPane prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane prefHeight="47.0" prefWidth="200.0">
+                            <children>
+                                <ImageView fitHeight="67.0" fitWidth="1256.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@top.png" />
+                                    </image>
+                                    <viewport>
+                                        <Rectangle2D height="40.0" />
+                                    </viewport>
+                                </ImageView>
+                                <ImageView fitHeight="43.0" fitWidth="1259.0" layoutX="307.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@top.png" />
+                                    </image>
+                                    <viewport>
+                                        <Rectangle2D height="40.0" />
+                                    </viewport>
+                                </ImageView>
+                                <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1566.0">
+                                    <effect>
+                                        <DropShadow height="38.55" offsetY="5.0" radius="9.1375" spread="0.24" width="0.0">
+                                            <color>
+                                                <Color opacity="0.5" />
+                                            </color></DropShadow>
+                                    </effect></Rectangle>
+                                <Label fx:id="courselabel" alignment="CENTER" layoutX="7.0" layoutY="17.0" prefHeight="32.0" prefWidth="245.0" style="-fx-background-color: #10003E;" styleClass="standardlabel" stylesheets="@../Main.css" text="Course" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="19.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                        </Pane>
+                    </children>
+                </AnchorPane>
+            </bottom>
+        </BorderPane>
+    </top>
+   <center>
+      <BorderPane fx:id="center" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <left>
+            <BorderPane fx:id="leftbp" prefHeight="436.0" prefWidth="451.0" BorderPane.alignment="CENTER">
+               <top>
+                  <BorderPane prefHeight="147.0" prefWidth="460.0" BorderPane.alignment="CENTER">
+                     <top>
+                        <BorderPane prefHeight="53.0" prefWidth="460.0" BorderPane.alignment="CENTER">
+                           <bottom>
+                              <TextField fx:id="tit" prefHeight="40.0" prefWidth="391.0" promptText="Enter the Title Here" styleClass="textfields" stylesheets="@../Main.css" BorderPane.alignment="CENTER" />
+                           </bottom>
+                           <top>
+                              <BorderPane prefHeight="32.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+                                 <left>
+                                    <Label fx:id="titlabel" prefHeight="24.0" prefWidth="49.0" styleClass="textfieldlabel" stylesheets="@../Main.css" text="  Title" BorderPane.alignment="CENTER" />
+                                 </left>
+                                 <top>
+                                    <Pane prefHeight="13.0" prefWidth="460.0" BorderPane.alignment="CENTER" />
+                                 </top>
+                              </BorderPane>
+                           </top>
+                        </BorderPane>
+                     </top>
+                     <bottom>
+                        <BorderPane prefHeight="72.0" prefWidth="460.0" BorderPane.alignment="CENTER">
+                           <bottom>
+                              <TextField fx:id="dead" prefHeight="40.0" prefWidth="441.0" promptText=" Enter the Deadline Here" styleClass="textfields" stylesheets="@../Main.css" BorderPane.alignment="CENTER" />
+                           </bottom>
+                           <top>
+                              <Pane prefHeight="15.0" prefWidth="460.0" BorderPane.alignment="CENTER" />
+                           </top>
+                           <left>
+                              <Label fx:id="deadlabel" prefHeight="25.0" prefWidth="93.0" styleClass="textfieldlabel" stylesheets="@../Main.css" text="  Deadline" BorderPane.alignment="CENTER" />
+                           </left>
+                        </BorderPane>
+                     </bottom>
+                  </BorderPane>
+               </top>
+            </BorderPane>
+         </left>
+         <right>
+            <BorderPane prefHeight="436.0" prefWidth="235.0" BorderPane.alignment="CENTER">
+               <center>
+                  <ScrollPane fx:id="scroll" prefHeight="409.0" prefWidth="121.0" stylesheets="@../test.css" BorderPane.alignment="CENTER">
+                    <content>
+                      <AnchorPane fx:id="anchor" minHeight="0.0" minWidth="0.0" prefHeight="403.0" prefWidth="233.0">
+                           <children>
+                              <Pane fx:id="backpane" prefHeight="395.0" prefWidth="233.0" />
+                              <FlowPane fx:id="testfp" hgap="10.0" layoutX="-5.0" prefHeight="395.0" prefWidth="233.0" vgap="10.0">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding></FlowPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </center>
+               <bottom>
+                  <Button fx:id="test" mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" styleClass="addass" stylesheets="@../Main.css" text="Add Test Case" BorderPane.alignment="CENTER" />
+               </bottom>
+            </BorderPane>
+         </right>
+         <center>
+            <BorderPane fx:id="brect" prefHeight="548.0" prefWidth="14.0" BorderPane.alignment="CENTER">
+               <center>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#152f48" height="433.0" stroke="BLACK" strokeType="INSIDE" width="4.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

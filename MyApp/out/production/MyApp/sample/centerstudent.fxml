@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CenterStudent">
+    <left>
+        <AnchorPane prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+    </left>
+    <right>
+        <BorderPane fx:id="apr" prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+    </right>
+    <bottom>
+        <BorderPane fx:id="apb" prefHeight="10.0" prefWidth="720.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+    </bottom>
+    <top>
+        <BorderPane prefHeight="87.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+            <right>
+                <AnchorPane prefHeight="52.0" prefWidth="250.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="36.0" layoutX="3.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.5" />
+                        <AnchorPane prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: black;">
+                            <children>
+                                <Pane prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;">
+                                    <children>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="249.0" />
+                                    </children>
+                                </Pane>
+                            </children>
+                        </AnchorPane>
+                        <Label layoutX="15.0" layoutY="11.0" prefHeight="25.0" prefWidth="82.0" text="Deadline" textFill="#2ecef0">
+                            <font>
+                                <Font name="Square721 BT Roman" size="20.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="deadline" depthTest="DISABLE" layoutX="105.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #5FD4BC; -fx-border-width: 2; -fx-border-radius: 4; -fx-background-insets: 0;" text="Deadline" textFill="#5fd4bc">
+                            <font>
+                                <Font name="Square721 BT Bold" size="20.0" />
+                            </font>
+                            <padding>
+                                <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
+                            </padding>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </right>
+            <left>
+                <AnchorPane maxHeight="398.0" prefHeight="0.0" prefWidth="470.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+                    <children>
+                        <AnchorPane prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: black;">
+                            <children>
+                                <Pane prefHeight="47.0" prefWidth="468.0" style="-fx-background-color: black;">
+                                    <children>
+                                        <Rectangle arcHeight="5.0" arcWidth="5.0" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="468.0" />
+                                    </children>
+                                </Pane>
+                                <Label fx:id="assNo" layoutX="12.0" layoutY="11.0" prefHeight="25.0" prefWidth="162.0" text="Assignment No" textFill="#2ecef0">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="assName" layoutX="176.0" layoutY="12.0" prefHeight="25.0" prefWidth="294.0" text="Assignment Name" textFill="#2ecef0">
+                                    <font>
+                                        <Font name="Square721 BT Roman" size="20.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                    </children>
+                </AnchorPane>
+            </left>
+            <bottom>
+                <BorderPane fx:id="aps" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER" />
+            </bottom>
+        </BorderPane>
+    </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black; -fx-border-color: #2ECEF0; -fx-border-width: 4;" BorderPane.alignment="CENTER">
+         <bottom>
+            <BorderPane fx:id="lb" prefHeight="58.0" prefWidth="692.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+               <left>
+                  <Button fx:id="butt1" mnemonicParsing="false" prefHeight="28.0" prefWidth="173.0" styleClass="left" stylesheets="@../Main.css" text="Button" BorderPane.alignment="CENTER" />
+               </left>
+               <center>
+                  <Button fx:id="cenbutt" mnemonicParsing="false" prefHeight="30.0" prefWidth="320.0" styleClass="cen" stylesheets="@../Main.css" text="Button" BorderPane.alignment="CENTER" />
+               </center>
+               <right>
+                  <Button fx:id="butt3" mnemonicParsing="false" prefHeight="28.0" prefWidth="181.0" styleClass="right" stylesheets="@../Main.css" text="Button" BorderPane.alignment="CENTER" />
+               </right>
+               <BorderPane.margin>
+                  <Insets left="2.0" right="2.0" />
+               </BorderPane.margin>
+               <top>
+                  <Pane fx:id="rec" prefHeight="4.0" prefWidth="684.0" style="-fx-background-color: #2ECEF0;" BorderPane.alignment="CENTER" />
+               </top>
+            </BorderPane>
+         </bottom>
+         <padding>
+            <Insets left="2.0" right="2.0" />
+         </padding></BorderPane>
+   </center>
+</BorderPane>

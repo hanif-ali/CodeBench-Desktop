@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="teacherparent" prefHeight="654.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Cont3">
+    <children>
+        <Pane prefHeight="654.0" prefWidth="226.0" styleClass="spane" stylesheets="@SignIn.css">
+            <children>
+                <ImageView fitHeight="115.0" fitWidth="137.0" layoutX="48.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@code%20%20bench%20logo%20png%20(4).png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="1.0" layoutY="467.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="226.0" styleClass="sb2" stylesheets="@SignIn.css">
+                    <graphic>
+                        <ImageView fitHeight="50.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@tech1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Button fx:id="student" layoutY="370.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="226.0" styleClass="sb1" stylesheets="@SignIn.css">
+
+                    <graphic>
+                        <ImageView fitHeight="51.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@std2.png" />
+                            </image>
+                        </ImageView>
+                    </graphic></Button>
+                <Label layoutX="55.0" layoutY="556.0" prefHeight="27.0" prefWidth="123.0" text=" Trouble logging in?">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Hyperlink layoutX="81.0" layoutY="583.0" text="Contact us" textFill="#35f0fe" underline="true">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Hyperlink>
+            </children>
+        </Pane>
+        <Pane fx:id="removableteacher" layoutX="225.0" prefHeight="654.0" prefWidth="429.0">
+            <children>
+                <ImageView fitHeight="654.0" fitWidth="429.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@back2.png" />
+                    </image>
+                </ImageView>
+                <Pane layoutX="59.0" layoutY="100.0" prefHeight="115.0" prefWidth="315.0" styleClass="Disp" stylesheets="@SignIn.css">
+                    <children>
+                        <Label layoutX="102.0" layoutY="14.0" prefHeight="35.0" prefWidth="174.0" text=" Welcome">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="58.0" prefHeight="27.0" prefWidth="277.0" text="Enter your login information here" textFill="#20eaf0">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+                    </children></Pane>
+                <TextField fx:id="usert" layoutX="59.0" layoutY="378.0" opacity="0.6" prefHeight="47.0" prefWidth="335.0" promptText="Enter your username here">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextField>
+                <TextField fx:id="passt" layoutX="59.0" layoutY="475.0" opacity="0.55" prefHeight="47.0" prefWidth="335.0" promptText="Enter your password here">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextField>
+                <Label layoutX="59.0" layoutY="357.0" prefHeight="21.0" prefWidth="83.0" styleClass="lab3" stylesheets="@SignIn.css" text="    Username" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font></Label>
+                <Label layoutX="59.0" layoutY="454.0" prefHeight="21.0" prefWidth="83.0" styleClass="lab4" stylesheets="@SignIn.css" text="    Password" textFill="WHITE">
+                    <font>
+                        <Font size="13.0" />
+                    </font></Label>
+                <ImageView fitHeight="38.0" fitWidth="91.0" layoutX="172.0" layoutY="565.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@logt.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="loginteacher" layoutX="162.0" layoutY="556.0" mnemonicParsing="false" opacity="0.0" prefHeight="58.0" prefWidth="113.0">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </Button>
+
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

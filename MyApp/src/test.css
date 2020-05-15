@@ -1,0 +1,51 @@
+.label{
+
+    -fx-font-size: 10px;
+    -fx-font-family: "Square721 BT";
+    -fx-text-fill: #10003e;
+
+}
+
+.button {
+
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
+    -fx-pref-width: 95px;
+    -fx-pref-height: 62px;
+
+}
+
+.button:hover{
+
+    -fx-background-color: #EBEBEB;
+
+}
+
+.button:pressed{
+
+    -fx-background-color: #D5D5D5;
+
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:#010453;
+
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 0em;
+}

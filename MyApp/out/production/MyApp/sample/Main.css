@@ -1,0 +1,174 @@
+.Parent{
+    -fx-background-color: white;
+}
+
+
+.OverPane{
+    -fx-background-color: white;
+
+
+}
+.signin1{
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-color:#010453 ;
+    -fx-text-fill: white;
+;
+}
+.signin2{
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-radius: 10 10 10 10;
+    -fx-background-color: #2EBCFD;
+    -fx-text-fill: black;
+;
+}
+.lab1{
+    -fx-text-fill:white ;
+    -fx-background-color:#010453 ;
+
+}
+.lab2{
+    -fx-text-fill: black;
+    -fx-background-color: #2EBCFD;
+}
+
+.butt1{
+
+    -fx-background-color: white;
+}
+.butt2{
+    -fx-background-color: white;
+
+}
+.buttonsideteacher{
+    -fx-padding: 2 2 2 2;
+}
+.sidepane{
+    -fx-background-color: #19F4FA;
+}
+.mypanel{
+
+    -fx-background-color: black;
+}
+.scroll-pane > .corner {
+    -fx-background-color: black;
+}
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #61509E;
+    -fx-background-radius: 0em;
+}
+.toggle-button{
+
+    -fx-background-color: #07001E;
+    -fx-background-radius: 0;
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+    -fx-font-size: 10px ;
+    -fx-text-fill: #999999;
+    -fx-pref-height: 20;
+    -fx-pref-width: 225;
+    -fx-max-height: 20 ;
+    -fx-max-width: 225;
+    -fx-min-height: 20;
+    -fx-min-width: 225;
+
+}
+
+.toggle-button:hover{
+
+    -fx-background-color: #61509E;
+    -fx-text-fill: #100040;
+    -fx-font-size: 10px ;
+
+}
+
+.toggle-button:pressed {
+
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: black;
+    -fx-font-size: 10px;
+}
+
+.toggle-button:selected {
+
+    -fx-background-color: #E6E6E6;
+    -fx-text-fill: black;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+}
+
+.vbar {
+
+    -fx-background-color: #61509E;
+
+}
+.coursebutton{
+    -fx-background-color:#100040 ;
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+    -fx-font-size: 10px;
+
+
+
+}
+
+.scrollpane {
+
+    -fx-background-color: #61509E;
+    -fx-fill: #61509E;
+}
+.signout{
+
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+    -fx-background-color: #261A4D ;
+    -fx-text-fill: white ;
+    -fx-border-width: 0px;
+
+
+}
+.signout:hover{
+
+    -fx-background-color: #3F3362;
+    -fx-text-fill: White ;
+}
+.add{
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+    -fx-background-color:  #100040;
+    -fx-border-style: segments(10px, 5px) ;
+    -fx-border-width: 1px ;
+    -fx-border-color: #999999;
+    -fx-border-radius: 2px;
+}
+
+
+
+.labf{
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+
+
+}
+.add:hover {
+
+    -fx-background-color: #26156B;
+    -fx-text-fill: white ;
+}

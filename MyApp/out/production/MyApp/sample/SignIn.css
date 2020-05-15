@@ -1,0 +1,23 @@
+.Disp{
+    -fx-background-color: white;
+    -fx-border-radius: 18 18 18 18;
+    -fx-background-radius: 18 18 18 18;
+
+}
+
+
+.sb1{
+    -fx-background-color: white;
+}
+.sb2{
+    -fx-background-color: white;
+}
+.spane{
+    -fx-background-color: white;
+
+}
+.sidepane{
+
+    -fx-background-color: #2EBCFD;
+
+}

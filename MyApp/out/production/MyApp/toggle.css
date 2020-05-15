@@ -1,0 +1,41 @@
+.toggle-button{
+
+    -fx-background-color: #2ECEF0;
+    -fx-background-radius: 0;
+    -fx-font-family: "Square721 BT";
+    -fx-font-style: normal;
+    -fx-font-size: 11px ;
+    -fx-text-fill: #100040;
+    -fx-pref-height: 20;
+    -fx-pref-width: 225;
+    -fx-max-height: 20 ;
+    -fx-max-width: 225;
+    -fx-min-height: 20;
+    -fx-min-width: 225;
+    -fx-font-weight: bold;
+}
+
+.toggle-button:hover{
+
+    -fx-background-color: #61509E;
+    -fx-text-fill: #100040;
+    -fx-font-size: 11px ;
+    -fx-font-weight: bold;
+
+}
+
+.toggle-button:pressed {
+
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2ECEF0;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
+
+.toggle-button:selected {
+
+    -fx-background-color: #E6E6E6;
+    -fx-text-fill: #2ECEF0;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+}
