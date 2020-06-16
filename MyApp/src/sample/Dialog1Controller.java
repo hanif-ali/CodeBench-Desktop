@@ -138,17 +138,25 @@ public class Dialog1Controller  implements Initializable {
     private Label remarkLab;
     @FXML
     private FlowPane fp;
+    int subId;
+    @FXML
+    Button download;
     ArrayList<Button> arr=new ArrayList<Button>();
     String name;
     String cms;
     String date;
+    String token;
 
     Dialog1Controller(){
 
     }
 
-    Dialog1Controller(String name,String cms,String date,JSONObject data,centerteacher cen){
+
+    Dialog1Controller(String name,String cms,String date,JSONObject data,centerteacher cen,String token,int sub){
+
     this.data=data;
+    this.token=token;
+    this.subId=sub;
     this.cen=cen;
     this.name=name;
     this.cms=cms;
@@ -160,6 +168,7 @@ public class Dialog1Controller  implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
 
             ScaleX(background,1000,2,1,0);
             LinearMoveY(head,500,-200,0,0);
@@ -250,6 +259,17 @@ public class Dialog1Controller  implements Initializable {
             addLabel.setText(name);
             addLabel1.setText(cms);
             datelabel.setText(date);
+            download.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    try {
+                        HttpGetDownloadFileExample.downloadFile("admin/submissions/"+subId+"/file","C:\\Users\\HP\\IdeaProjects\\MyApp\\src\\sample\\Downloads",token,name+subId);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("File downloaded successfully!");
+                }
+            });
 
             try{
             totalcases.setText("0"+data.getInt("total_test_cases"));

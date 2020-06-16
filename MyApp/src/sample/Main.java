@@ -26,6 +26,7 @@ public class Main extends Application {
         //Button b1= (Button) loader.getNamespace().get("teach");
         AnchorPane root;
         root=loader.load();
+
         primaryStage.setTitle("Code Bench");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

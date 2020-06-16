@@ -152,7 +152,8 @@ public class centerteacher implements Initializable {
 
 
 
-    public Node createCard(String name ,String cms ,String submission,String grade,int delay){
+    public Node createCard(String name ,String cms ,String submission,String grade,boolean stat,int delay){
+
         Pane hbox=fp;
         Card c1 = new Card();
         Node n1 = c1.makeCard(name , cms , submission, grade);
@@ -161,6 +162,9 @@ public class centerteacher implements Initializable {
         Label l2 = c1.getCmsLabel();
         Label l3 = c1.getSubmittedOnLabel();
         Label l4 = c1.getSubmissionLabel();
+        if(stat){
+        l4.setStyle("-fx-text-fill: red");
+        }
 
         hbox.getChildren().add(n1);
         Vanish(n1,delay);

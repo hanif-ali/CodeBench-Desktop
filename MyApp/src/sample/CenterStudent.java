@@ -24,6 +24,10 @@ import java.util.ResourceBundle;
 
 public class CenterStudent implements Initializable {
     @FXML
+    Button butt;
+    @FXML
+    BorderPane myBP;
+    @FXML
     Label assNo;
     @FXML
     private BorderPane apr;
@@ -32,11 +36,11 @@ public class CenterStudent implements Initializable {
     @FXML
     private BorderPane aps;
     @FXML
-    private Button butt1;
+     Button butt1;
     @FXML
-    private Button butt3;
+     Button butt3;
     @FXML
-    private Button cenbutt;
+     Button cenbutt;
     @FXML
     private Pane rec;
     @FXML
@@ -58,8 +62,12 @@ public class CenterStudent implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         butt1.setText("Add submission");
         butt3.setText("+ Submit Assignment");
+
         rec.prefWidthProperty().bind(lb.widthProperty());
         cenbutt.setText("Please choose your submission file.");
+        butt1.setVisible(false);
+        butt3.setVisible(false);
+        cenbutt.setVisible(false);
         butt1.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

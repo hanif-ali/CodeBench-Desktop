@@ -1,0 +1,21 @@
+.button {
+
+    -fx-border-style: segments(10px, 5px);
+    -fx-background-color:  transparent;
+
+    -fx-border-width: 2px ;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8px;
+
+}
+.label{
+    -fx-border-style: segments(10px, 5px);
+    -fx-background-color:  transparent;
+    -fx-text-alignment: center;
+
+    -fx-border-width: 2px ;
+    -fx-border-color: #333333;
+    -fx-border-radius: 8px;
+
+
+}

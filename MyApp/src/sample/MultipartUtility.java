@@ -134,6 +134,7 @@ public class MultipartUtility {
             }
             reader.close();
             httpConn.disconnect();
+            System.out.println(response.toString());
         } else {
             throw new IOException("Server returned non-OK status: " + status);
         }

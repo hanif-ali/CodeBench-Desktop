@@ -36,6 +36,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class testcases implements Initializable {
+    int id;
     @FXML
     private BorderPane center;
     @FXML
@@ -86,7 +87,7 @@ public class testcases implements Initializable {
     FXMLLoader pani;
 
     testcases(){
-        this(null,null,null,null,null,null,null);
+        this(null,null,null,null,null,null,null,0);
 
     }
 
@@ -95,9 +96,10 @@ public class testcases implements Initializable {
 
     }
 
-    testcases(Stage pm,FXMLLoader loader,String course,FXMLLoader mainbp,FXMLLoader load,FXMLLoader pani,String token){
+    testcases(Stage pm,FXMLLoader loader,String course,FXMLLoader mainbp,FXMLLoader load,FXMLLoader pani,String token,int id){
         this.token=token;
         this.loader=loader;
+        this.id=id;
         this.primaryStage=pm;
         this.course=course;
         this.mainbp=mainbp;
@@ -115,15 +117,16 @@ public class testcases implements Initializable {
 
     public String getTitle(){
         try {
-            if (tit.getText() == "") {
-                throw new IllegalArgumentException("Title field cannot be blank");
+            if (tit.getText().length()==0) {
+                throw new TitleEx("Title field cannot be blank");
             } else {
+                System.out.println("NON-EMPTY");
                 return tit.getText();
             }
         }
         catch (IllegalArgumentException e){
             System.out.println(e);
-            throw new IllegalArgumentException("Title field cannot be blank");
+            throw new TitleEx("Title field cannot be blank");
         }
 
     }
@@ -140,7 +143,7 @@ public class testcases implements Initializable {
 
 
 
-    public String getDead() throws IllegalArgumentException{
+    public String getDead() throws IllegalArgumentException,Exception{
         String deadline=dead.getText();
         try {
             if (deadline.length() != 16 ) {
@@ -155,16 +158,21 @@ public class testcases implements Initializable {
                 String minute=deadline.substring(14,16);
                 LocalDateTime deadLine=LocalDateTime.of(Integer.parseInt(year),Integer.parseInt(month),Integer.parseInt(day),Integer.parseInt(hour),Integer.parseInt(minute));
                 System.out.println(deadline);
+
                 return deadLine.toString();
             }
         }
         catch (NumberFormatException e){
-            System.out.println(e);
-            throw new IllegalArgumentException("Please enter the deadline in YYYY-MM-DD HH:MM format NF");
+            System.out.println("Please enter the deadline in YYYY-MM-DD HH:MM format ");
+            throw new IllegalArgumentException("Please enter the deadline in YYYY-MM-DD HH:MM\n format e.g 2020:12:12 12:12");
         }
         catch (IllegalArgumentException e){
-            System.out.println(e);
-            throw new IllegalArgumentException("Please enter the deadline in YYYY-MM-DD HH:MM format IL");
+            System.out.println("Please enter the deadline in YYYY-MM-DD HH:MM format ");
+            throw new IllegalArgumentException("Please enter the deadline in YYYY-MM-DD HH:MM \nformat e.g 2020:12:12 12:12");
+
+        }catch (Exception e){
+            System.out.println("Please enter the deadline in YYYY-MM-DD HH:MM format ");
+            throw new Exception("Please enter the deadline in YYYY-MM-DD HH:MM \nformat e.g 2020:12:12 12:12");
         }
 
     }
@@ -228,6 +236,7 @@ public class testcases implements Initializable {
                             tit.clear();
                             dead.clear();
                             testfp.getChildren().removeAll(testfp.getChildren());
+                            pan.modify();
 
 
                             for(int i=0;i<testcase.length();i++){
@@ -238,16 +247,27 @@ public class testcases implements Initializable {
                         }
                     });
                     firstLineService.start();
+
                 }
                 catch (JSONException e){
                     e.printStackTrace();
                 }
 
             }
-            catch(IllegalArgumentException ex){
+            catch(TitleEx ex){
                 System.out.println(ex);
+                ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
+                eb.showDialogue();
+            }
+            catch (Exception ex){
+                System.out.println(ex);
+                ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
+                eb.showDialogue();
 
-            } }
+            }
+
+
+            }
         });
 
 
@@ -482,6 +502,7 @@ public class testcases implements Initializable {
 
 
 
+
                 } catch(IOException | JSONException e){
                     System.out.println("Unable to load Dialogue Box");
 
@@ -500,5 +521,13 @@ public class testcases implements Initializable {
 
     }
 
+
+
+}
+
+class TitleEx extends IllegalArgumentException{
+    TitleEx(String message){
+        super(message);
+    }
 
 }

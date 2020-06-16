@@ -189,7 +189,7 @@
                      <bottom>
                         <BorderPane prefHeight="72.0" prefWidth="460.0" BorderPane.alignment="CENTER">
                            <bottom>
-                              <TextField fx:id="dead" prefHeight="40.0" prefWidth="441.0" promptText=" Enter the Deadline Here" styleClass="textfields" stylesheets="@../Main.css" BorderPane.alignment="CENTER" />
+                              <TextField fx:id="dead" prefHeight="40.0" prefWidth="441.0" promptText=" Enter the Deadline in YYYY:MM:DD HH:MM format" styleClass="textfields" stylesheets="@../Main.css" BorderPane.alignment="CENTER" />
                            </bottom>
                            <top>
                               <Pane prefHeight="15.0" prefWidth="460.0" BorderPane.alignment="CENTER" />

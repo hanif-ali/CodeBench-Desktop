@@ -13,6 +13,9 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -41,7 +44,7 @@ public class DialogController  implements Initializable {
     @FXML
     private Label visibleLabel;
     @FXML
-    private ToggleButton tButt;
+    ToggleButton tButt;
     @FXML
     private Label label2;
     @FXML
@@ -56,6 +59,8 @@ public class DialogController  implements Initializable {
     public Label detail;
     @FXML
     public DialogPane dp;
+    boolean visible;
+    int i=0;
 
 
 
@@ -85,8 +90,11 @@ public class DialogController  implements Initializable {
 }
 
 
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+
         addTest.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -101,6 +109,7 @@ public class DialogController  implements Initializable {
                     try {
                         obj.put("input",in);
                         obj.put("output",out);
+                        obj.put("visible",visible);
                         t1.addingTest(obj,index);
                 }   catch (JSONException e) {
                         e.printStackTrace();
@@ -112,7 +121,7 @@ public class DialogController  implements Initializable {
             }}
         });
 
-
+        toggles(tButt);
         ScaleX(tab1,500,2,1,false,1,0);
         ScaleX(tab2,500,2,1,false,1,0);
         Vanish(label1,500);
@@ -150,6 +159,85 @@ public class DialogController  implements Initializable {
 
 
     }
+    public void toggleClick(){
+
+        toggles(tButt);
+
+    }
+
+
+    public void toggles(ToggleButton toggleButton) {
+        if(tButt.isSelected()){
+            visible=true;
+        }
+        else {
+            visible=false;
+        }
+        i++;
+        System.out.println(visible);
+
+
+        toggleButton.setPrefHeight(11.5);
+        toggleButton.setPrefWidth(24);
+        toggleButton.setMaxHeight(11.5);
+        toggleButton.setMaxWidth(24);
+        toggleButton.setMinHeight(11.5);
+        toggleButton.setMinWidth(24);
+
+        Pane pane = new Pane();
+        Circle circle = new Circle();
+        circle.setRadius(8);
+        circle.setStyle(" -fx-background-color: #E6E6E6 ; -fx-border-color: #10003E ; -fx-border-width: 1 ");
+        circle.setCenterY(1.15);
+        circle.setCenterX(-4);
+        circle.setFill(Color.WHITE);
+        circle.setStroke(Color.BLACK);
+
+        pane.getChildren().add(circle);
+        toggleButton.setGraphic(pane);
+
+
+        if (toggleButton.isSelected()) {
+
+            LinearMoveX(circle, 200, 0, 14);
+
+            toggleButton.setStyle("-fx-background-radius: 20 ; -fx-background-color: #10003E ; -fx-border-color: #10003E ; -fx-border-radius: 20 ; -fx-border-width: 1 ");
+
+        }
+
+        else{
+
+            LinearMoveX(circle, 200, 14, 0);
+            toggleButton.setStyle("-fx-background-radius: 20 ; -fx-background-color: #E6E6E6 ; -fx-border-color: #10003E ; -fx-border-radius: 20 ; -fx-border-width: 1 ");
+
+
+        }
+
+
+    }
+
+
+
+    public void LinearMoveX(Node node, int duration, int from, int to) {
+
+        TranslateTransition move = new TranslateTransition();
+        move.setNode(node);
+        move.setDuration(Duration.millis(duration));
+        move.setFromX(from);
+        move.setToX(to);
+        move.setCycleCount(1);
+        move.setAutoReverse(false);
+        move.play();
+
+
+    }
+
+
+
+
+
+
+
 
     public void Scale(Node node, int duration, double from, double to,boolean repeat,int cycles,int delay){
 

@@ -7,16 +7,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class StPanel implements Initializable {
@@ -39,6 +42,8 @@ public class StPanel implements Initializable {
     int groupId;
     int studentId;
     CenterStudent myCent;
+    CENTER centre;
+    BorderPane borderPane;
     StPanel(){
 
     }
@@ -53,9 +58,13 @@ public class StPanel implements Initializable {
 
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            FXMLLoader load1=new FXMLLoader(getClass().getResource("CENTER.fxml"));
+            centre=(CENTER)load1.getController();
+            load1.setControllerFactory(t -> new CENTER());
             courselab.setText(""+details.getJSONObject("group").get("name"));
             groupId=details.getJSONObject("group").getInt("id");
             studentId=details.getInt("cms_id");
@@ -77,7 +86,41 @@ public class StPanel implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         try {
-                            myCent.deadline.setText(assignments.getJSONObject(finalI).getString("deadline"));
+                            myCent.butt1.setVisible(true);
+                            myCent.cenbutt.setVisible(true);
+                            myCent.butt3.setVisible(true);
+                            String ded=assignments.getJSONObject(finalI).getString("deadline");
+                            myCent.butt.setStyle("-fx-border-color:#333333 ");
+                            myCent.butt.setStyle("-fx-text-fill:#333333 ");
+                            myCent.butt.setTextFill(Color.RED);
+                            if(assignments.getJSONObject(finalI).getBoolean("submission")==false)
+
+                            {
+                                if(Panel.toDate(ded).isBefore(LocalDateTime.now())){
+                                    myCent.butt.setStyle("-fx-text-fill: red");
+                                    myCent.butt.setText("DEADLINE HAS EXPIRED");
+
+                                    myCent.butt.setStyle("-fx-border-color: red");
+                                    //myCent.butt1.setVisible(false);
+                                    //myCent.butt3.setVisible(false);
+                                    //myCent.cenbutt.setText("");
+
+                                }
+                                else{
+                                    myCent.butt.setText("ASSIGNMENT HAS NOT BEEN\n SUBMITTED");
+                                    myCent.butt1.setText("Add Submission");
+                                }
+
+                            }
+                            else {
+                                myCent.butt.setText("SUBMISSION HAS BEEN\n MADE-RESULTS AWAITED");
+                                myCent.butt1.setText("EDIT SUBMISSION");
+                            }
+
+                            myCent.butt1.setText("Add Submission");
+
+
+                            myCent.deadline.setText(ded.substring(0,10)+" "+ded.substring(11,16));
                             myCent.assName.setText("  "+assignments.getJSONObject(finalI).getString("title"));
                             myCent.assNo.setText("Assignment No "+(finalI+1));
                             myCent.assId=assignments.getJSONObject(finalI).getInt("id");

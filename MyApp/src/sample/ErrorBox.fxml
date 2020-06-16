@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<DialogPane fx:id="dp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="384.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Error">
+    <header>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="384.0">
+            <children>
+                <Label fx:id="header" layoutX="202.0" layoutY="93.0" prefHeight="30.0" prefWidth="251.0">
+                    <font>
+                        <Font name="Square721 BT Bold" size="21.0" />
+                    </font>
+                </Label>
+            <Pane prefHeight="143.0" prefWidth="384.0">
+               <children>
+                      <ImageView fitHeight="210.0" fitWidth="377.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@DialogBox.png" />
+                          </image>
+                      </ImageView>
+               </children>
+            </Pane>
+                <Rectangle fx:id="head" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" layoutX="-11.0" layoutY="-11.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="384.0">
+                    <effect>
+                        <DropShadow height="53.62" offsetY="2.0" radius="18.155" spread="0.13">
+                            <color>
+                                <Color opacity="0.3086956739425659" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Rectangle>
+                <Label fx:id="errorm" alignment="CENTER" layoutX="-8.0" layoutY="44.0" text="This error was caused by your stupid ass actions&#10;fix them bitch" textFill="#10003e">
+                    <font>
+                        <Font name="Square721 BT Roman" size="15.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="2.0" left="10.0" right="10.0" top="2.0" />
+                    </padding>
+                </Label>
+                <Label fx:id="addLabel" layoutX="4.0" text="Stupidity Error">
+                    <font>
+                        <Font name="Square721 BT Bold" size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="return1" layoutX="297.0" layoutY="110.0" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: transparent; -fx-border-color: #A60028; -fx-border-radius: 4; -fx-border-width: 1;" text="Return" textFill="#a60028">
+                    <font>
+                        <Font name="Square721 BT Roman" size="12.0" />
+                    </font>
+                </Button>
+            </children></AnchorPane>
+    </header>
+    <content>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+    </content>
+    <expandableContent>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+    </expandableContent>
+    <graphic>
+        <Pane prefHeight="200.0" prefWidth="200.0" />
+    </graphic>
+</DialogPane>
