@@ -6,6 +6,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.StageStyle;
 
@@ -14,6 +15,7 @@ import java.util.Optional;
 
 public class ErrorBox {
     BorderPane border;
+    AnchorPane anchorPane;
     String message;
     String name;
     ErrorBox(String name,String message,BorderPane br){
@@ -21,6 +23,13 @@ public class ErrorBox {
         this.name=name;
         this.message=message;
     }
+    ErrorBox(String name,String message,AnchorPane anchorPane){
+        this.anchorPane=anchorPane;
+        this.name=name;
+        this.message=message;
+    }
+
+
     public void showDialogue(){
 
         ColorAdjust dimi = new ColorAdjust();
@@ -30,10 +39,18 @@ public class ErrorBox {
         BoxBlur blur = new BoxBlur(3,3,3);
         System.out.println("Click");
         Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.initOwner(border.getScene().getWindow());
-        dialog.initStyle(StageStyle.UNDECORATED);
-        blur.setInput(dimi);
-        border.setEffect(blur);
+        if(border==null){
+            dialog.initOwner(anchorPane.getScene().getWindow());
+            dialog.initOwner(anchorPane.getScene().getWindow());
+            dialog.initStyle(StageStyle.UNDECORATED);
+            blur.setInput(dimi);
+            anchorPane.setEffect(blur);
+
+    }   else{
+            dialog.initOwner(border.getScene().getWindow());
+            dialog.initStyle(StageStyle.UNDECORATED);
+            blur.setInput(dimi);
+            border.setEffect(blur);}
         try {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ErrorBox.fxml"));
@@ -49,7 +66,13 @@ public class ErrorBox {
         if(result.isPresent()){
         }
         else{
-            border.setEffect(null);
+            if(border!=null){
+            border.setEffect(null);}
+            else {
+                anchorPane.setEffect(null);
+            }
+
+
         }
 
     }

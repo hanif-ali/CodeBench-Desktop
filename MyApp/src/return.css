@@ -1,0 +1,64 @@
+.return{
+
+    -fx-border-color: #A60028;
+    -fx-text-fill: #A60028;
+
+}
+.return:hover{
+
+    -fx-border-color: #FF003D;
+    -fx-text-fill: #FF003D;
+
+}
+.return:pressed{
+
+    -fx-border-color: #FF84A2;
+    -fx-text-fill: #FF84A2;
+
+}
+
+
+
+.download{
+
+    -fx-border-color:  #143e52;
+    -fx-text-fill:  #143e52;
+
+}
+.download:hover{
+
+    -fx-border-color: gray;
+    -fx-text-fill: gray;
+
+}
+.download:pressed{
+
+    -fx-border-color: black;
+    -fx-text-fill: black;
+
+}
+
+.assign{
+
+    -fx-background-color: #100040 ;
+    -fx-text-fill: white;
+    -fx-font-family: "Square721 BT" ;
+    -fx-font-weight: normal;
+}
+
+.assign:hover{
+
+    -fx-background-color: #26156B ;
+    -fx-text-fill: white;
+    -fx-font-family: "Square721 BT" ;
+
+}
+
+.assign:pressed{
+
+    -fx-background-color: #61509E ;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-family: "Square721 BT" ;
+
+}

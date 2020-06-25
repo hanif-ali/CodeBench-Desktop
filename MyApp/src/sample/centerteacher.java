@@ -7,15 +7,18 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -37,23 +40,28 @@ public class centerteacher implements Initializable {
     @FXML
     private Pane pane;
 
-   /* @FXML
-    private Button button1;
+    /* @FXML
+     private Button button1;
 
-    @FXML
-    private TextField name;
-    @FXML
-    private TextField cms;
-    @FXML
-    private TextField date;
-    @FXML
-    private TextField grade;*/
+     @FXML
+     private TextField name;
+     @FXML
+     private TextField cms;
+     @FXML
+     private TextField date;
+     @FXML
+     private TextField grade;*/
     @FXML
     private Button deadline;
     @FXML
     private Label assNo;
     @FXML
     private Label assName;
+    @FXML BorderPane mainpane;
+    @FXML Pane linepane1;
+    @FXML Pane linepane2;
+    @FXML Pane linepane3;
+    @FXML Pane linepane4;
     String token;
     centerteacher(){
 
@@ -62,6 +70,61 @@ public class centerteacher implements Initializable {
         this.token=token;
     }
 
+    Stage primaryStage;
+
+    private double xOffset = 0 ;
+    private double yOffset = 0 ;
+
+    public void drag(Pane apane){
+
+        apane.setOnMousePressed(((event) -> {
+
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        }));
+
+        apane.setOnMouseDragged(((event) -> {
+
+            primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setX(event.getScreenX()-xOffset);
+            primaryStage.setY(event.getScreenY()-yOffset);
+
+        }));
+
+    }
+
+    public Line[] createLines(Pane blackpane, String colour){
+
+        Line[] lines = new Line[200];
+        double lineX = -200;
+        double lineY = -500;
+
+
+        for (int i = 0 ; i<199 ; i++){
+
+            Line line = new Line();
+
+            line.setStartX(0);
+            line.setEndX(2000);
+            line.setStartY(0);
+            line.setEndY(0);
+            line.setRotate(-30);
+            line.setFill(Color.web(colour));
+            line.setStroke(Color.web(colour));
+            line.setStrokeWidth(1.5);
+            lines[i] = line;
+            lines[i].setLayoutX(lineX);
+            lines[i].setLayoutY(lineY);
+
+            blackpane.getChildren().add(lines[i]);
+
+            lineY +=7.5;
+
+        }
+
+        return lines;
+
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -70,6 +133,38 @@ public class centerteacher implements Initializable {
         //deadline.setText("25-04-2020");
         //assName.setText("Classes");
         //assNo.setText("Assignment 1");
+
+        drag(mainpane);
+        createLines(linepane1,"#E6E6E6");
+        createLines(linepane2,"#E6E6E6");
+        createLines(linepane3,"#E6E6E6");
+        createLines(linepane4,"#E6E6E6");
+
+        Rectangle clipper1 = new Rectangle();
+        clipper1.setHeight(47);
+        clipper1.setWidth(5000);
+        clipper1.setLayoutX(0);
+        clipper1.setLayoutY(0);
+        Rectangle clipper2 = new Rectangle();
+        clipper2.setHeight(5000);
+        clipper2.setWidth(10);
+        clipper2.setLayoutX(0);
+        clipper2.setLayoutY(0);
+        Rectangle clipper3 = new Rectangle();
+        clipper3.setHeight(10);
+        clipper3.setWidth(5000);
+        clipper3.setLayoutX(0);
+        clipper3.setLayoutY(0);
+        Rectangle clipper4 = new Rectangle();
+        clipper4.setHeight(5000);
+        clipper4.setWidth(10);
+        clipper4.setLayoutX(0);
+        clipper4.setLayoutY(0);
+
+        linepane2.setClip(clipper2);
+        linepane4.setClip(clipper4);
+        linepane3.setClip(clipper3);
+        linepane1.setClip(clipper1);
 
 
 
@@ -163,7 +258,7 @@ public class centerteacher implements Initializable {
         Label l3 = c1.getSubmittedOnLabel();
         Label l4 = c1.getSubmissionLabel();
         if(stat){
-        l4.setStyle("-fx-text-fill: red");
+            l4.setStyle("-fx-text-fill: red");
         }
 
         hbox.getChildren().add(n1);
@@ -309,11 +404,11 @@ public class centerteacher implements Initializable {
 }
 class Card {
 
-    public Label line1 ;
-    public Label line2 ;
-    public Label line3 ;
-    public Label line4 ;
-    public VBox vbox ;
+    public Label line1;
+    public Label line2;
+    public Label line3;
+    public Label line4;
+    public VBox vbox;
     public Button buttong;
     public Button card;
     int number;
@@ -329,15 +424,16 @@ class Card {
         card = new Button();
 
     }
-    public Node getCard(){
+
+    public Node getCard() {
         return this.card;
     }
 
 
-    public Node makeCard (int no,int num,String status){
+    public Node makeCard(int no, int num, String status) {
 
 
-        line1.setText("Test Case "+(num+1));
+        line1.setText("Test Case " + (num + 1));
         line1.setStyle("-fx-font-weight: bold");
         vbox = new VBox();
         vbox.setSpacing(3);
@@ -345,8 +441,11 @@ class Card {
         vbox.getChildren().addAll(line1);
         buttong.setText(status);
         buttong.getStylesheets().add("notgraded.css");
+        buttong.setCursor(Cursor.HAND);
         vbox.getChildren().add(buttong);
+        vbox.setCursor(Cursor.HAND);
         card.getStylesheets().add("test.css");
+        card.setCursor(Cursor.HAND);
         DropShadow shadow = new DropShadow();
         shadow.setBlurType(BlurType.THREE_PASS_BOX);
 
@@ -363,8 +462,7 @@ class Card {
     }
 
 
-
-    public Node makeCard (String name, String cms, String submission, String status){
+    public Node makeCard(String name, String cms, String submission, String status) {
 
 
         line1.setText(name);
@@ -376,13 +474,14 @@ class Card {
         line1.setStyle("-fx-font-weight: bold");
         line3.setStyle("-fx-font-weight: bold");
 
-        line4.setPadding(new Insets(0,0,5,0));
+        line4.setPadding(new Insets(0, 0, 5, 0));
 
         vbox = new VBox();
         vbox.setSpacing(3);
         vbox.setPadding(new Insets(5, 5, 8, 5));
 
         vbox.getChildren().addAll(line1, line2, line3, line4);
+        vbox.setCursor(Cursor.HAND);
 
 
         status.toLowerCase();
@@ -403,6 +502,7 @@ class Card {
 
 
         card.getStylesheets().add("card.css");
+        card.setCursor(Cursor.HAND);
 
         DropShadow shadow = new DropShadow();
         shadow.setBlurType(BlurType.THREE_PASS_BOX);
@@ -418,27 +518,31 @@ class Card {
         card.setEffect(shadow);
         return card;
     }
-    public Label getNameLabel(){
+
+    public Label getNameLabel() {
         return line1;
     }
-    public Label getCmsLabel(){
+
+    public Label getCmsLabel() {
         return line2;
     }
-    public Label getSubmittedOnLabel(){
+
+    public Label getSubmittedOnLabel() {
         return line3;
     }
-    public Label getSubmissionLabel(){
+
+    public Label getSubmissionLabel() {
         return line4;
     }
-    public Button getgradeButton(){
+
+    public Button getgradeButton() {
         return buttong;
 
     }
 
-    public double getPrefWidth(){
+    public double getPrefWidth() {
 
         return card.getPrefWidth();
 
     }
-
 }

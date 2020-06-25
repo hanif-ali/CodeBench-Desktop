@@ -3,17 +3,17 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
@@ -36,19 +36,20 @@ public class CenterStudent implements Initializable {
     @FXML
     private BorderPane aps;
     @FXML
-     Button butt1;
+    Button butt1;
     @FXML
-     Button butt3;
+    Button butt3;
     @FXML
-     Button cenbutt;
+    Button cenbutt;
     @FXML
     private Pane rec;
+    Parent parent;
     @FXML
     private BorderPane lb;
     @FXML
     Button deadline;
     @FXML
-            Label assName;
+    Label assName;
     int assId;
 
     File sub;
@@ -86,7 +87,7 @@ public class CenterStudent implements Initializable {
         butt3.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-               // FileSend fileSend=new FileSend("student/assignments/"+assId+"/submit",token,sub.getAbsolutePath());
+                // FileSend fileSend=new FileSend("student/assignments/"+assId+"/submit",token,sub.getAbsolutePath());
                 //fileSend.sendFile();
                 String charset = "UTF-8";
                 String requestURL = "http://127.0.0.1:5000/student/assignments/"+assId+"/submit";
@@ -101,18 +102,29 @@ public class CenterStudent implements Initializable {
                 try {
                     multipart.addFilePart("source_code", new File(sub.getAbsolutePath()));
                     String response = multipart.finish();
-                } catch (IOException e) {
+                    JSONObject visible=new JSONObject(response);
+                    if(visible.getJSONArray("visible_test_cases").length()>0){
+                        FXMLLoader mine=new FXMLLoader(getClass().getResource("visible.fxml"));
+                        mine.setControllerFactory(t -> new Visible(visible));
+                        parent=mine.load();
+                        myBP.setCenter(parent);
+                    }else {
+                        butt.setText("SUBMITTED");
+                    }
+
+
+
+
+
+                } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
-
-
-
 
 
 
             }
         });
 
-        }
+    }
 
 }

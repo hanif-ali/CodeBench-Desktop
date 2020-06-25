@@ -2,16 +2,13 @@ package sample;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-
-import org.json.*;
-import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Auth {
     String user_name;
@@ -19,9 +16,11 @@ public class Auth {
     Stage myStage;
     String type;
     String route;
+    Label error;
 
 
-    Auth(String user_name,String password,String type,Stage myStage,String route){
+    Auth(String user_name,String password,String type,Stage myStage,String route,Label ap){
+        this.error=ap;
         this.user_name=user_name;
         this.password=password;
         this.type=type;
@@ -77,15 +76,24 @@ public class Auth {
             }
         }
 
-        else if(value.equals("denied")){
-            String description=(String)js.get("description");
-            System.out.println(description);
-        }
-
-
         else {
             String description=(String)js.get("description");
             System.out.println(description);
+            error.setText("EMAIL/PASSWORD INVALID!");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
     }
 

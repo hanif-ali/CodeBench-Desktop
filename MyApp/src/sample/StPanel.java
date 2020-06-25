@@ -7,17 +7,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.layout.Border;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-
-import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ResourceBundle;
@@ -62,6 +62,21 @@ public class StPanel implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
+            signout.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    FXMLLoader load1=new FXMLLoader(getClass().getResource("sample.fxml"));
+                    load1.setControllerFactory(t -> new Controller(primaryStage));
+                    try {
+                        Scene sc=new Scene(load1.load());
+                        primaryStage.setScene(sc);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+
             FXMLLoader load1=new FXMLLoader(getClass().getResource("CENTER.fxml"));
             centre=(CENTER)load1.getController();
             load1.setControllerFactory(t -> new CENTER());
@@ -85,6 +100,10 @@ public class StPanel implements Initializable {
                 buttons[i].setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
+                        if(myCent.parent!=null){
+                        myCent.parent.setVisible(false);
+                        myCent.myBP.setCenter(myCent.butt);
+                        }
                         try {
                             myCent.butt1.setVisible(true);
                             myCent.cenbutt.setVisible(true);

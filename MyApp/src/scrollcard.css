@@ -1,28 +1,13 @@
-.text-area{
-
-    -fx-border-color: #0B0033;
-
-}
-.text-area:hover{
-
-    -fx-border-color: #36B7D2;
-
-}
-.text-area:pressed{
-
-    -fx-border-color: #418EF3;
-
-}
 .scroll-bar:vertical .track{
-    -fx-background-color : white ;
-    -fx-border-color :white ;
+    -fx-background-color :  #E6E6E6 ;
+    -fx-border-color : #E6E6E6 ;
     -fx-background-radius : 0 ;
     -fx-border-radius : 4 ;
 }
 
 .scroll-bar:vertical .increment-button ,
 .scroll-bar:vertical .decrement-button {
-    -fx-background-color : white ;
+    -fx-background-color :  #E6E6E6 ;
     -fx-background-radius : 0 ;
     -fx-padding :0 10 0 0 ;
 
@@ -47,7 +32,12 @@
 }
 
 .scroll-bar:vertical .thumb:hover {
-    -fx-background-color : #5BB3FF ;
+    -fx-background-color : #3F3362 ;
+    -fx-background-insets : 1 , 0 , 0 ;
+    -fx-background-radius : 4 ;
+}
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color : #261A4D ;
     -fx-background-insets : 1 , 0 , 0 ;
     -fx-background-radius : 4 ;
 }

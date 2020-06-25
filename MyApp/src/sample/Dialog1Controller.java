@@ -151,6 +151,28 @@ public class Dialog1Controller  implements Initializable {
 
     }
 
+    Stage primaryStage;
+
+    private double xOffset = 0 ;
+    private double yOffset = 0 ;
+
+    public void drag(Pane apane){
+
+        apane.setOnMousePressed(((event) -> {
+
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        }));
+
+        apane.setOnMouseDragged(((event) -> {
+
+            primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setX(event.getScreenX()-xOffset);
+            primaryStage.setY(event.getScreenY()-yOffset);
+
+        }));
+
+    }
 
     Dialog1Controller(String name,String cms,String date,JSONObject data,centerteacher cen,String token,int sub){
 
@@ -169,6 +191,7 @@ public class Dialog1Controller  implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
 
+            drag(dp);
 
             ScaleX(background,1000,2,1,0);
             LinearMoveY(head,500,-200,0,0);

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="center" prefHeight="308.0" prefWidth="700.0" style="-fx-background-color: #1A1A1A; -fx-border-color: #2ECEF0; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Visible">
+    <right>
+        <BorderPane prefHeight="179.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+            <center>
+                <BorderPane prefHeight="232.0" prefWidth="213.0" BorderPane.alignment="CENTER">
+                    <center>
+                        <ScrollPane fx:id="scroll" prefHeight="316.0" prefWidth="213.0" style="-fx-background-color: #1A1A1A;" stylesheets="@../test.css" BorderPane.alignment="CENTER">
+                            <content>
+                                <AnchorPane fx:id="anchor" minHeight="0.0" minWidth="0.0" prefHeight="339.0" prefWidth="233.0" style="-fx-background-color: #1A1A1A;">
+                                    <children>
+                                        <Pane fx:id="backpane" prefHeight="395.0" prefWidth="233.0" style="-fx-background-color: #1A1A1A;" />
+                                        <FlowPane fx:id="testfp" hgap="10.0" layoutX="-5.0" layoutY="-23.0" prefHeight="366.0" prefWidth="233.0" style="-fx-background-color: #1A1A1A;" vgap="10.0">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </padding>
+                                        </FlowPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                            <BorderPane.margin>
+                                <Insets top="10.0" />
+                            </BorderPane.margin>
+                        </ScrollPane>
+                    </center>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" right="10.0" />
+                    </BorderPane.margin>
+                </BorderPane>
+            </center>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+            <left>
+                <BorderPane maxWidth="3.0" minWidth="3.0" prefHeight="200.0" prefWidth="3.0" style="-fx-background-color: #2ecef0;" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" right="5.0" top="10.0" />
+                    </BorderPane.margin>
+                </BorderPane>
+            </left>
+        </BorderPane>
+    </right>
+    <center>
+        <BorderPane fx:id="brect" prefHeight="371.0" prefWidth="7.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+            <top>
+                <BorderPane prefHeight="69.0" prefWidth="451.0" BorderPane.alignment="CENTER">
+                    <top>
+                        <BorderPane prefHeight="112.0" prefWidth="440.0" BorderPane.alignment="CENTER">
+                            <center>
+                                <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                    <top>
+                                        <BorderPane prefWidth="324.0" style="-fx-background-color: #494949; -fx-background-radius: 8;" BorderPane.alignment="CENTER">
+                                            <BorderPane.margin>
+                                                <Insets bottom="3.0" right="5.0" />
+                                            </BorderPane.margin>
+                                            <left>
+                                                <Label prefWidth="109.0" style="-fx-background-color: #2ECEF0; -fx-background-radius: 4;" text="Total Test&#10;Cases" BorderPane.alignment="CENTER">
+                                                    <font>
+                                                        <Font name="Square721 BT Bold" size="15.0" />
+                                                    </font>
+                                                    <padding>
+                                                        <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
+                                                    </padding>
+                                                    <BorderPane.margin>
+                                                        <Insets right="10.0" />
+                                                    </BorderPane.margin>
+                                                    <effect>
+                                                        <DropShadow height="75.0" radius="43.25" spread="0.5" width="100.0">
+                                                            <color>
+                                                                <Color opacity="0.20000000298023224" />
+                                                            </color>
+                                                        </DropShadow>
+                                                    </effect>
+                                                </Label>
+                                            </left>
+                                            <right>
+                                                <Label fx:id="ttest" text="08" textFill="#2ecef0" BorderPane.alignment="CENTER">
+                                                    <font>
+                                                        <Font name="Square721 BT Bold" size="30.0" />
+                                                    </font>
+                                                    <BorderPane.margin>
+                                                        <Insets left="10.0" right="10.0" />
+                                                    </BorderPane.margin>
+                                                </Label>
+                                            </right>
+                                        </BorderPane>
+                                    </top>
+                                    <bottom>
+                                        <BorderPane style="-fx-background-color: #494949; -fx-background-radius: 8;" BorderPane.alignment="CENTER">
+                                            <left>
+                                                <Label prefWidth="109.0" style="-fx-background-color: #5FD4BC; -fx-background-radius: 4;" text="Test Cases&#10;Satisfied&#10;" BorderPane.alignment="CENTER">
+                                                    <font>
+                                                        <Font name="Square721 BT Bold" size="15.0" />
+                                                    </font>
+                                                    <padding>
+                                                        <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
+                                                    </padding>
+                                                    <BorderPane.margin>
+                                                        <Insets right="10.0" />
+                                                    </BorderPane.margin>
+                                                    <effect>
+                                                        <DropShadow height="50.0" radius="37.0" spread="0.5" width="100.0">
+                                                            <color>
+                                                                <Color opacity="0.20000000298023224" />
+                                                            </color>
+                                                        </DropShadow>
+                                                    </effect>
+                                                </Label>
+                                            </left>
+                                            <right>
+                                                <Label fx:id="stest" text="08" textFill="#5fd4bc" BorderPane.alignment="CENTER">
+                                                    <font>
+                                                        <Font name="Square721 BT Bold" size="30.0" />
+                                                    </font>
+                                                    <BorderPane.margin>
+                                                        <Insets left="10.0" right="10.0" />
+                                                    </BorderPane.margin>
+                                                </Label>
+                                            </right>
+                                            <BorderPane.margin>
+                                                <Insets right="5.0" top="3.0" />
+                                            </BorderPane.margin>
+                                        </BorderPane>
+                                    </bottom>
+                                </BorderPane>
+                            </center>
+                            <right>
+                                <BorderPane prefHeight="112.0" prefWidth="116.0" BorderPane.alignment="CENTER">
+                                    <center>
+                                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                            <children>
+                                                <Rectangle arcHeight="25.0" arcWidth="25.0" fill="#494949" height="111.0" layoutX="3.0" stroke="TRANSPARENT" strokeType="INSIDE" width="111.0" />
+                                                <Circle centerX="58.0" centerY="55.0" fill="#2ecef0" radius="45.0" stroke="BLACK" strokeType="INSIDE">
+                                                    <effect>
+                                                        <DropShadow height="100.0" radius="49.5" spread="0.5" width="100.0">
+                                                            <color>
+                                                                <Color opacity="0.30000001192092896" />
+                                                            </color>
+                                                        </DropShadow>
+                                                    </effect>
+                                                </Circle>
+                                                <Arc centerX="58.0" centerY="55.0" fill="#5fd4bc" length="288.0" radiusX="45.0" radiusY="45.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+                                                <Circle centerX="58.0" centerY="55.0" fill="#191919" radius="35.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                <Label fx:id="testcases" alignment="CENTER" layoutX="23.0" layoutY="21.0" prefHeight="70.0" prefWidth="70.0" text="08" textFill="#2ecef0">
+                                                    <font>
+                                                        <Font name="Square721 BT Bold" size="30.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </AnchorPane>
+                                    </center>
+                                </BorderPane>
+                            </right>
+                            <BorderPane.margin>
+                                <Insets right="5.0" />
+                            </BorderPane.margin>
+                        </BorderPane>
+                    </top>
+                    <BorderPane.margin>
+                        <Insets left="10.0" top="10.0" />
+                    </BorderPane.margin>
+                    <center>
+                        <BorderPane prefHeight="30.0" prefWidth="443.0" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets top="5.0" />
+                            </BorderPane.margin>
+                        </BorderPane>
+                    </center>
+                </BorderPane>
+            </top>
+            <center>
+                <BorderPane prefHeight="198.0" prefWidth="443.0" BorderPane.alignment="CENTER">
+                    <top>
+                        <BorderPane prefHeight="194.0" prefWidth="445.0" BorderPane.alignment="CENTER">
+                            <BorderPane.margin>
+                                <Insets top="5.0" />
+                            </BorderPane.margin>
+                            <center>
+                                <BorderPane prefHeight="125.0" prefWidth="440.0" BorderPane.alignment="CENTER">
+                                    <center>
+                                        <BorderPane prefHeight="173.0" prefWidth="303.0" BorderPane.alignment="CENTER">
+                                 <top>
+                                                <BorderPane prefHeight="74.0" prefWidth="285.0" style="-fx-background-color: #494949; -fx-background-radius: 8;" BorderPane.alignment="CENTER">
+                                                    <BorderPane.margin>
+                                                        <Insets bottom="3.0" top="3.0" />
+                                                    </BorderPane.margin>
+                                                    <right>
+                                                        <Label fx:id="linter" text="06" textFill="#fff6a9" BorderPane.alignment="CENTER">
+                                                            <font>
+                                                                <Font name="Square721 BT Bold" size="30.0" />
+                                                            </font>
+                                                            <BorderPane.margin>
+                                                                <Insets left="10.0" right="10.0" />
+                                                            </BorderPane.margin>
+                                                        </Label>
+                                                    </right>
+                                       <left>
+                                                        <Label prefHeight="88.0" prefWidth="190.0" style="-fx-background-color: #FFF6A9; -fx-background-radius: 4;" text="Linter&#10;&#10;" BorderPane.alignment="CENTER">
+                                                            <font>
+                                                                <Font name="Square721 BT Bold" size="15.0" />
+                                                            </font>
+                                                            <padding>
+                                                                <Insets bottom="7.0" left="10.0" right="10.0" top="7.0" />
+                                                            </padding>
+                                                            <BorderPane.margin>
+                                                                <Insets right="10.0" />
+                                                            </BorderPane.margin>
+                                                            <effect>
+                                                                <DropShadow height="60.5" radius="39.625" spread="0.5" width="100.0">
+                                                                    <color>
+                                                                        <Color opacity="0.20000000298023224" />
+                                                                    </color>
+                                                                </DropShadow>
+                                                            </effect>
+                                                        </Label>
+                                       </left>
+                                                </BorderPane>
+                                 </top>
+                                        </BorderPane>
+                                    </center>
+                                    <right>
+                                        <BorderPane prefHeight="173.0" prefWidth="56.0" BorderPane.alignment="CENTER">
+                                            <center>
+                                                <AnchorPane prefHeight="173.0" prefWidth="81.0" BorderPane.alignment="CENTER">
+                                                    <children>
+                                                        <Circle fill="#191919" layoutX="93.0" layoutY="87.0" radius="62.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                                                    </children>
+                                                    <BorderPane.margin>
+                                                        <Insets />
+                                                    </BorderPane.margin>
+                                                </AnchorPane>
+                                            </center>
+                                        </BorderPane>
+                                    </right>
+                                    <BorderPane.margin>
+                                        <Insets bottom="10.0" right="5.0" top="10.0" />
+                                    </BorderPane.margin>
+                                </BorderPane>
+                            </center>
+                            <top>
+                                <BorderPane maxHeight="3.0" minHeight="3.0" prefHeight="3.0" prefWidth="445.0" style="-fx-background-color: #2ecef0;" BorderPane.alignment="CENTER">
+                                    <BorderPane.margin>
+                                        <Insets right="5.0" />
+                                    </BorderPane.margin>
+                                </BorderPane>
+                            </top>
+                        </BorderPane>
+                    </top>
+                    <BorderPane.margin>
+                        <Insets left="10.0" />
+                    </BorderPane.margin>
+                    <center>
+                        <BorderPane fx:id="remarkpane" prefHeight="26.0" prefWidth="445.0" BorderPane.alignment="CENTER" />
+                    </center>
+                </BorderPane>
+            </center>
+            <bottom>
+                <BorderPane prefHeight="0.0" prefWidth="443.0" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                    </BorderPane.margin>
+                </BorderPane>
+            </bottom>
+        </BorderPane>
+    </center>
+    <bottom>
+        <BorderPane fx:id="buttonpane" prefHeight="0.0" prefWidth="696.0" BorderPane.alignment="CENTER">
+            <center>
+                <Button fx:id="saveresult" mnemonicParsing="false" prefHeight="27.0" prefWidth="686.0" style="-fx-background-color: trans; -fx-border-color: #2ECEF0; -fx-border-width: 2;" text="Result of visible test cases" textFill="#2ec1f9" BorderPane.alignment="CENTER">
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </BorderPane.margin>
+                    <font>
+                        <Font name="Square721 BT Roman" size="12.0" />
+                    </font>
+                </Button>
+            </center>
+        </BorderPane>
+    </bottom>
+</BorderPane>

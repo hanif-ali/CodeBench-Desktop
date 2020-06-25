@@ -1,25 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.DialogPane?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Arc?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<DialogPane fx:id="dp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dialog1Controller">
+<DialogPane fx:id="dp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Dialog1Controller">
     <header>
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="387.0" prefWidth="723.0">
             <children>
@@ -30,211 +21,229 @@
                                 <Image url="@DialogBox.png" />
                             </image>
                         </ImageView>
-                      <Button fx:id="return1" layoutX="1.0" layoutY="362.0" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: transparent; -fx-border-color: #A60028; -fx-border-radius: 4; -fx-border-width: 1;" text="Return" textFill="#a60028">
-                          <font>
-                              <Font name="Square721 BT Roman" size="12.0" />
-                          </font>
-                      </Button>
-                  <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#e6e6e6" height="302.0" layoutX="-2.0" layoutY="50.0" stroke="#100040" strokeType="INSIDE" strokeWidth="2.5" width="705.0" />
-                  <Rectangle fx:id="separator" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="275.0" layoutX="461.0" layoutY="62.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#100040" height="2.5" layoutX="11.0" layoutY="189.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="440.0" />
-                  <Button fx:id="submit" layoutX="444.0" layoutY="362.0" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="258.0" style="-fx-background-color: #100040; -fx-border-radius: 8;" text="Assign grade" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Roman" size="12.0" />
-                     </font>
-                  </Button>
-                  <ScrollPane layoutX="463.0" layoutY="53.0" prefHeight="297.0" prefWidth="237.0" style="-fx-background-color: #E6E6E6;">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="229.0" style="-fx-background-color: #E6E6E6;">
-                           <children>
-                              <FlowPane fx:id="fp" hgap="10.0" layoutX="-2.0" layoutY="-1.0" prefHeight="295.0" prefWidth="238.0" style="-fx-background-radius: 4;" vgap="10.0">
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                              </FlowPane>
-                           </children>
-                        </AnchorPane>
-                    </content>
-                  </ScrollPane>
-                  <Rectangle fx:id="slide1" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="2.5" layoutX="11.0" layoutY="121.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="440.0" />
-                  <Label fx:id="total" layoutX="10.0" layoutY="64.0" prefHeight="21.0" prefWidth="364.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Total Test Cases">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="total11" layoutX="10.0" layoutY="92.0" prefHeight="21.0" prefWidth="367.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Test Cases Satisfied">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="suggested1" layoutX="10.0" layoutY="132.0" prefHeight="21.0" prefWidth="373.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Suggested Grade">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="suggested11" layoutX="10.0" layoutY="160.0" prefHeight="21.0" prefWidth="185.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Linting">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="totalcases" alignment="CENTER" layoutX="369.0" layoutY="64.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="08" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="sat" alignment="CENTER" layoutX="369.0" layoutY="92.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #00A684; -fx-background-radius: 4;" text="08" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="bloc11" alignment="CENTER" layoutX="345.0" layoutY="132.0" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: #00A684; -fx-background-radius: 4;" text="06" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="suggested111" layoutX="203.0" layoutY="160.0" prefHeight="21.0" prefWidth="180.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Space Time">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="bloc111" alignment="CENTER" layoutX="369.0" layoutY="160.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #5BB3FF; -fx-background-radius: 4;" text="04" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Label fx:id="bloc1111" alignment="CENTER" layoutX="167.0" layoutY="160.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #9663C2; -fx-background-radius: 4;" text="02" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Rectangle fx:id="graph1" arcHeight="10.0" arcWidth="10.0" fill="#cdcdcd" height="50.0" layoutX="403.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
-                  <Rectangle fx:id="graph11" arcHeight="10.0" arcWidth="10.0" fill="#cdcdcd" height="50.0" layoutX="403.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
-                  <Arc fx:id="g1arc1" fill="#0b0033" layoutX="428.0" layoutY="88.0" length="360.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Arc fx:id="g2arc1" fill="#0b0033" layoutX="428.0" layoutY="156.0" length="360.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="#b5121200" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Arc fx:id="g1arc2" fill="#00a684" layoutX="428.0" layoutY="88.0" length="288.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Arc fx:id="g2arc2" fill="#00a684" layoutX="428.0" layoutY="156.0" length="216.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Arc fx:id="g2arc3" fill="#5bb3ff" layoutX="428.0" layoutY="156.0" length="144.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Arc fx:id="g2arc4" fill="#af70e5" layoutX="428.0" layoutY="156.0" length="72.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-                  <Circle fx:id="circle1" fill="#e6e6e6" layoutX="428.0" layoutY="88.0" radius="17.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                  <Label fx:id="number1" alignment="CENTER" layoutX="403.0" layoutY="62.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" text="08">
-                     <font>
-                        <Font name="Square721 BT Bold" size="17.0" />
-                     </font>
-                  </Label>
-                  <Circle fx:id="circle11" fill="#e6e6e6" layoutX="428.0" layoutY="156.0" radius="17.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                  <Label fx:id="number11" alignment="CENTER" layoutX="403.0" layoutY="130.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" text="06">
-                     <font>
-                        <Font name="Square721 BT Bold" size="17.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="grade1" layoutX="10.0" layoutY="202.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Grade" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Rectangle fx:id="grader" fill="#00a684" height="21.0" layoutX="405.0" layoutY="202.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
-                  <TextArea fx:id="grade" layoutX="402.0" layoutY="202.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover1" onMouseEntered="#hover1" onMouseExited="#hover1" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 4 4 4; -fx-background-color: white;" wrapText="true">
-                     <padding>
-                        <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
-                     </padding>
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TextArea>
-                  <Label fx:id="grade11" layoutX="10.0" layoutY="229.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Linting" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Rectangle fx:id="linting" fill="#5bb3ff" height="21.0" layoutX="405.0" layoutY="229.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
-                  <TextArea fx:id="text11" layoutX="402.0" layoutY="229.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover2" onMouseEntered="#hover2" onMouseExited="#hover2" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 0 0 4; -fx-background-color: white;" wrapText="true">
-                     <padding>
-                        <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
-                     </padding>
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TextArea>
-                  <Label fx:id="grade111" layoutX="10.0" layoutY="256.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Space Time" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Rectangle fx:id="spacetime" fill="#9663c2" height="21.0" layoutX="405.0" layoutY="256.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
-                  <TextArea fx:id="text111" layoutX="402.0" layoutY="256.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover3" onMouseEntered="#hover3" onMouseExited="#hover3" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 0 0 4; -fx-background-color: white;" wrapText="true">
-                     <padding>
-                        <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
-                     </padding>
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TextArea>
-                  <TextArea fx:id="remarks" layoutX="9.0" layoutY="303.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="443.0" promptText="Remarks Here" style="-fx-background-color: Transparent; -fx-border-color: #0B0033; -fx-border-width: 2;" stylesheets="@TextField.css">
-                     <font>
-                        <Font name="Square721 BT Bold" size="10.0" />
-                     </font>
-                  </TextArea>
-                  <Label fx:id="remarkLab" layoutX="9.0" layoutY="284.0" style="-fx-background-color: #0B0033;" text="Remarks" textFill="WHITE">
-                     <font>
-                        <Font name="Square721 BT Bold" size="12.5" />
-                     </font>
-                     <padding>
-                        <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
-                     </padding>
-                  </Label>
-                  <Button fx:id="download" layoutX="286.0" layoutY="361.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" style="-fx-background-color: transparent; -fx-border-color: #143e52; -fx-border-radius: 4; -fx-border-width: 1;" text="Download submission" textFill="#143e52">
-                     <font>
-                        <Font name="Square721 BT Roman" size="12.0" />
-                     </font>
-                  </Button>
+                        <Button fx:id="return1" layoutX="1.0" layoutY="362.0" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: transparent; -fx-border-radius: 4; -fx-border-width: 1;" styleClass="return" stylesheets="@../return.css" text="Return" textFill="#a60028">
+                            <font>
+                                <Font name="Square721 BT Roman" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Rectangle fx:id="background" arcHeight="5.0" arcWidth="5.0" fill="#e6e6e6" height="302.0" layoutX="-2.0" layoutY="50.0" stroke="#100040" strokeType="INSIDE" strokeWidth="2.5" width="705.0" />
+                        <Rectangle fx:id="separator" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="275.0" layoutX="461.0" layoutY="62.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#100040" height="2.5" layoutX="11.0" layoutY="189.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="440.0" />
+                        <Button fx:id="submit" layoutX="462.0" layoutY="362.0" mnemonicParsing="false" onAction="#quit" prefHeight="25.0" prefWidth="240.0" style="-fx-border-radius: 8;" styleClass="assign" stylesheets="@../return.css" text="Assign grade" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Roman" size="12.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <ScrollPane layoutX="463.0" layoutY="53.0" prefHeight="297.0" prefWidth="237.0" style="-fx-background-color: #E6E6E6;">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="229.0" style="-fx-background-color: #E6E6E6;">
+                                    <children>
+                                        <FlowPane fx:id="fp" hgap="10.0" layoutX="-2.0" layoutY="-1.0" prefHeight="295.0" prefWidth="238.0" style="-fx-background-radius: 4;" vgap="10.0">
+                                            <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </padding>
+                                        </FlowPane>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                        <Rectangle fx:id="slide1" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="2.5" layoutX="11.0" layoutY="121.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="440.0" />
+                        <Label fx:id="total" layoutX="10.0" layoutY="64.0" prefHeight="21.0" prefWidth="364.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Total Test Cases">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="total11" layoutX="10.0" layoutY="92.0" prefHeight="21.0" prefWidth="367.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Test Cases Satisfied">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="suggested1" layoutX="10.0" layoutY="132.0" prefHeight="21.0" prefWidth="373.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Suggested Grade">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="suggested11" layoutX="10.0" layoutY="160.0" prefHeight="21.0" prefWidth="185.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Linting">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="totalcases" alignment="CENTER" layoutX="369.0" layoutY="64.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="08" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="sat" alignment="CENTER" layoutX="369.0" layoutY="92.0" prefHeight="21.0" prefWidth="28.0" style="-fx-background-color: #00A684; -fx-background-radius: 4;" text="08" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="bloc11" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="132.0" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: #00A684; -fx-background-radius: 4;" text="06" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="suggested111" layoutX="203.0" layoutY="160.0" prefHeight="21.0" prefWidth="180.0" style="-fx-background-color: #CDCDCD; -fx-background-radius: 4;" text="Space Time">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="bloc111" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="160.0" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: #5BB3FF; -fx-background-radius: 4;" text="04" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Label fx:id="bloc1111" alignment="CENTER_RIGHT" layoutX="113.0" layoutY="160.0" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: #9663C2; -fx-background-radius: 4;" text="02" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="5.0" right="5.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Rectangle fx:id="graph1" arcHeight="10.0" arcWidth="10.0" fill="#cdcdcd" height="50.0" layoutX="403.0" layoutY="63.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+                        <Rectangle fx:id="graph11" arcHeight="10.0" arcWidth="10.0" fill="#cdcdcd" height="50.0" layoutX="403.0" layoutY="131.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="50.0" />
+                        <Arc fx:id="g1arc1" fill="#0b0033" layoutX="428.0" layoutY="88.0" length="360.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fx:id="g2arc1" fill="#0b0033" layoutX="428.0" layoutY="156.0" length="360.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="#b5121200" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fx:id="g1arc2" fill="#00a684" layoutX="428.0" layoutY="88.0" length="288.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fx:id="g2arc2" fill="#00a684" layoutX="428.0" layoutY="156.0" length="216.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fx:id="g2arc3" fill="#5bb3ff" layoutX="428.0" layoutY="156.0" length="144.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fx:id="g2arc4" fill="#af70e5" layoutX="428.0" layoutY="156.0" length="72.0" radiusX="21.0" radiusY="21.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Circle fx:id="circle1" fill="#e6e6e6" layoutX="428.0" layoutY="88.0" radius="17.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Label fx:id="number1" alignment="CENTER" layoutX="403.0" layoutY="62.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" text="08">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Circle fx:id="circle11" fill="#e6e6e6" layoutX="428.0" layoutY="156.0" radius="17.5" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Label fx:id="number11" alignment="CENTER" layoutX="403.0" layoutY="131.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" prefHeight="50.0" prefWidth="50.0" text="06">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="grade1" layoutX="10.0" layoutY="202.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Grade" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Rectangle fx:id="grader" fill="#00a684" height="21.0" layoutX="405.0" layoutY="202.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+                        <TextArea fx:id="grade" layoutX="402.0" layoutY="202.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover1" onMouseEntered="#hover1" onMouseExited="#hover1" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 4 4 4; -fx-background-color: white;" wrapText="true">
+                            <padding>
+                                <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
+                            </padding>
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </TextArea>
+                        <Label fx:id="grade11" layoutX="10.0" layoutY="229.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Linting" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Rectangle fx:id="linting" fill="#5bb3ff" height="21.0" layoutX="405.0" layoutY="229.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+                        <TextArea fx:id="text11" layoutX="402.0" layoutY="229.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover2" onMouseEntered="#hover2" onMouseExited="#hover2" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 0 0 4; -fx-background-color: white;" wrapText="true">
+                            <padding>
+                                <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
+                            </padding>
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </TextArea>
+                        <Label fx:id="grade111" layoutX="10.0" layoutY="256.0" prefHeight="21.0" prefWidth="417.0" style="-fx-background-color: #0B0033; -fx-background-radius: 4;" text="Space Time" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="20.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Rectangle fx:id="spacetime" fill="#9663c2" height="21.0" layoutX="405.0" layoutY="256.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="30.0" />
+                        <TextArea fx:id="text111" layoutX="402.0" layoutY="256.0" maxHeight="21.0" minHeight="21.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#hover3" onMouseEntered="#hover3" onMouseExited="#hover3" prefColumnCount="0" prefHeight="21.0" prefRowCount="0" prefWidth="51.0" promptText="06" style="-fx-background-radius: 4 0 0 4; -fx-background-color: white;" wrapText="true">
+                            <padding>
+                                <Insets bottom="-1.0" left="2.0" right="-1.0" top="-1.0" />
+                            </padding>
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </TextArea>
+                        <TextArea fx:id="remarks" layoutX="9.0" layoutY="303.0" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="443.0" promptText="Remarks Here" style="-fx-background-color: Transparent; -fx-border-width: 2;" stylesheets="@../TextField.css">
+                            <font>
+                                <Font name="Square721 BT Bold" size="10.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="TEXT" />
+                            </cursor>
+                        </TextArea>
+                        <Label fx:id="remarkLab" layoutX="9.0" layoutY="284.0" style="-fx-background-color: #0B0033;" text="Remarks" textFill="WHITE">
+                            <font>
+                                <Font name="Square721 BT Bold" size="12.5" />
+                            </font>
+                            <padding>
+                                <Insets bottom="3.0" left="10.0" right="10.0" top="3.0" />
+                            </padding>
+                        </Label>
+                        <Button fx:id="download" layoutX="308.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: transparent; -fx-border-radius: 4; -fx-border-width: 1;" styleClass="download" stylesheets="@../return.css" text="Download submission" textFill="#143e52">
+                            <font>
+                                <Font name="Square721 BT Roman" size="12.0" />
+                            </font>
+                        </Button>
                     </children>
                 </Pane>
                 <Rectangle fx:id="head" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" layoutX="-11.0" layoutY="-8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="723.0">
@@ -246,39 +255,42 @@
                         </DropShadow>
                     </effect>
                 </Rectangle>
-            <HBox prefHeight="37.0" prefWidth="417.0" spacing="10.0">
-               <children>
-                      <Label fx:id="addLabel" text="Student Name">
-                          <font>
-                              <Font name="Square721 BT Bold" size="20.0" />
-                          </font>
-                      </Label>
-                  <Label fx:id="addLabel11" text="-">
-                     <font>
-                        <Font name="Square721 BT Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="addLabel1" text="123456">
-                     <font>
-                        <Font name="Square721 BT Roman" size="20.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </HBox>
-            <Button fx:id="datelabel" layoutX="567.0" layoutY="4.0" maxHeight="22.0" minHeight="22.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="135.0" style="-fx-background-color: white; -fx-border-color: #A60028; -fx-border-radius: 4; -fx-border-width: 1.5;" text="10-04-2020" textFill="#a60028">
-               <padding>
-                  <Insets top="-1.0" />
-               </padding>
-            </Button>
-            <Label fx:id="addLabel12" layoutX="471.0" layoutY="5.0" text="Submitted On">
-               <font>
-                  <Font name="Square721 BT Roman" size="15.0" />
-               </font>
-            </Label>
-            <Rectangle fx:id="separator1" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="30.0" layoutX="461.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
+                <HBox prefHeight="37.0" prefWidth="417.0" spacing="10.0">
+                    <children>
+                        <Label fx:id="addLabel" text="Student Name">
+                            <font>
+                                <Font name="Square721 BT Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="addLabel11" text="-">
+                            <font>
+                                <Font name="Square721 BT Bold" size="20.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="addLabel1" text="123456">
+                            <font>
+                                <Font name="Square721 BT Roman" size="20.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <padding>
+                        <Insets left="5.0" />
+                    </padding>
+                </HBox>
+                <Button fx:id="datelabel" layoutX="580.0" layoutY="5.0" mnemonicParsing="false" prefWidth="122.0" style="-fx-background-color: white; -fx-border-color: #A60028; -fx-border-radius: 4; -fx-border-width: 1.5;" text="10-04-2020" textFill="#a60028">
+                    <font>
+                        <Font name="Square721 BT Bold" size="11.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="1.0" top="1.0" />
+                    </padding>
+                </Button>
+                <Label fx:id="addLabel12" layoutX="471.0" layoutY="5.0" text="Submitted On">
+                    <font>
+                        <Font name="Square721 BT Roman" size="15.0" />
+                    </font>
+                </Label>
+                <Rectangle fx:id="separator1" arcHeight="5.0" arcWidth="5.0" fill="#100040" height="30.0" layoutX="461.0" stroke="#100040" strokeType="INSIDE" strokeWidth="0.0" width="2.0" />
             </children></AnchorPane>
     </header>
     <content>

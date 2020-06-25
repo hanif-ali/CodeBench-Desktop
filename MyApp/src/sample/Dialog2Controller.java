@@ -7,14 +7,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,6 +26,31 @@ public class Dialog2Controller implements Initializable {
     Dialog2Controller(){
 
     }
+
+
+    Stage primaryStage;
+
+    private double xOffset = 0 ;
+    private double yOffset = 0 ;
+
+    public void drag(Pane apane){
+
+        apane.setOnMousePressed(((event) -> {
+
+            xOffset = event.getSceneX();
+            yOffset = event.getSceneY();
+        }));
+
+        apane.setOnMouseDragged(((event) -> {
+
+            primaryStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+            primaryStage.setX(event.getScreenX()-xOffset);
+            primaryStage.setY(event.getScreenY()-yOffset);
+
+        }));
+
+    }
+
     Dialog2Controller(JSONArray myjson, int index){
         this.myjson=myjson;
         this.index=index;
@@ -32,6 +58,8 @@ public class Dialog2Controller implements Initializable {
 
     @FXML
     private Button return1;
+    @FXML
+    private Button time;
     @FXML
     private Rectangle head;
     @FXML
@@ -48,10 +76,14 @@ public class Dialog2Controller implements Initializable {
     private Label label11;
     @FXML
     private Label label2;
+    @FXML
+    private DialogPane dp;
 
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+
+        drag(dp);
 
         LinearMoveY(head,500,-200,0,0);
         FadeIn(addLabel,250,500);

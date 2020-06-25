@@ -1,25 +1,24 @@
 package sample;
 
-import com.sun.javafx.image.impl.ByteIndexed;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.event.WeakEventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.ColorAdjust;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.json.JSONArray;
@@ -38,21 +37,30 @@ import java.util.ResourceBundle;
 
 public class Panel implements Initializable {
     String course="null";
-    String token;
+    @FXML Button close;
+    @FXML Button maximize;
+    @FXML Button minimize;
+    @FXML
+    Rectangle maxrect;
+
+    int osc = 1;
+    CustomAnimations animator = new CustomAnimations();
+    static String token;
     FXMLLoader mainbp;
     ToggleGroup assignment;
     MenuItem menuItem[];
     HashMap<Integer,String> hash1=new HashMap<Integer, String>();
 
     BorderPane bp;
+    static JSONArray assignmentss;
+    JSONObject assignEdit;
     ArrayList<Button> cardsSub=new ArrayList<Button>();
     ArrayList<Button> tests=new ArrayList<Button>();
+    static int courseId;
     Stage primaryStage;
-    String[] ns;
-    String[] ds;
-    String[] nos;
-    JSONObject myjson=new JSONObject();
+    JSONObject myjson = new JSONObject();
     FXMLLoader fx;
+    static int assid;
     FXMLLoader current;
     String deadline1;
     centerteacher c2;
@@ -60,7 +68,7 @@ public class Panel implements Initializable {
     int number;
     HashMap<String,Integer> coursesh=new HashMap<String,Integer>();
 
-    String state="s";
+    static String state="s";
     Panel(){
         this(null,null,null,null,null,null,null);
     }
@@ -84,9 +92,16 @@ public class Panel implements Initializable {
     @FXML
     private Button signout;
 
+
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         add.setVisible(false);
+
+
+
 
         add.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -115,6 +130,182 @@ public class Panel implements Initializable {
             coursebutton.getItems().clear();
             coursebutton.setAlignment(Pos.BASELINE_CENTER);
             name.setText(myjson.get("first_name").toString()+" "+myjson.get("last_name").toString());
+            signout.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    FXMLLoader load1=new FXMLLoader(getClass().getResource("sample.fxml"));
+
+                    load1.setControllerFactory(t -> new Controller(primaryStage));
+                    try {
+                        Scene sc=new Scene(load1.load());
+                        sc.setFill(null);
+                        primaryStage.setScene(sc);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+            maximize.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    if(primaryStage.isMaximized()){
+                        primaryStage.setMaximized(false);
+                    }
+                    else{
+                        primaryStage.setMaximized(true);
+                    }
+                }
+            });
+
+            minimize.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    primaryStage.setIconified(true);
+                }
+            });
+
+            close.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent actionEvent) {
+                    primaryStage.close();
+                }
+            });
+
+            close.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOnText(close,"#999999","#999999","#CE4869","#CE4869",100);
+
+                }
+
+            });
+
+            close.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOffText(close,"#999999","#999999","#CE4869","#CE4869",100);
+
+                }
+
+            });
+
+
+            close.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOnText(close,"#CE4869","#CE4869","#A60028","#A60028",100);
+
+                }
+
+            });
+
+            close.setOnMouseReleased(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOffText(close,"#CE4869","#CE4869","#A60028","#A60028",100);
+
+                }
+
+            });
+
+            minimize.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOnText(minimize,"#999999","#999999","#5BB3FF","#5BB3FF",100);
+
+                }
+
+            });
+
+            minimize.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOffText(minimize,"#999999","#999999","#5BB3FF","#5BB3FF",100);
+
+                }
+
+            });
+
+
+            minimize.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOnText(minimize,"#5BB3FF","#5BB3FF","#8DE4FF","#8DE4FF",100);
+
+                }
+
+            });
+
+            minimize.setOnMouseReleased(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.hoverOffText(minimize,"#5BB3FF","#5BB3FF","#8DE4FF","#8DE4FF",100);
+
+                }
+
+            });
+
+            maximize.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.ColourShiftRectBd(maxrect,"#999999","#999999","#00A684","#00A684",100,0);
+
+                }
+
+            });
+
+            maximize.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.ColourShiftRectBd(maxrect,"#00A684","#00A684","#999999","#999999",100,0);
+
+                }
+
+            });
+
+
+            maximize.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.ColourShiftRectBd(maxrect,"#00A684","#00A684","#00E5B6","#00E5B6",100,0);
+
+                }
+
+            });
+
+            maximize.setOnMouseReleased(new EventHandler<MouseEvent>() {
+
+                @Override
+                public void handle(MouseEvent event) {
+
+                    animator.ColourShiftRectBd(maxrect,"#00E5B6","#00E5B6","#00A684","#00A684",100,0);
+
+                }
+
+            });
 
 
 
@@ -136,9 +327,9 @@ public class Panel implements Initializable {
                     for(int n=0;n<num;n++){
                         //m[n]=new MenuItem(arr1.getJSONObject(n).getString("name"));
                         try{
-                        hash1.put(arr1.getJSONObject(n).getInt("id"),arr1.getJSONObject(n).getString("name"));
-                        coursesh.put(arr1.getJSONObject(n).getString("name"),arr1.getJSONObject(n).getInt("id"));
-                        m[n]=new MenuItem(hash1.get(arr1.getJSONObject(n).getInt("id")));}
+                            hash1.put(arr1.getJSONObject(n).getInt("id"),arr1.getJSONObject(n).getString("name"));
+                            coursesh.put(arr1.getJSONObject(n).getString("name"),arr1.getJSONObject(n).getInt("id"));
+                            m[n]=new MenuItem(hash1.get(arr1.getJSONObject(n).getInt("id")));}
                         catch (JSONException e){
                             e.printStackTrace();
                         }
@@ -152,6 +343,7 @@ public class Panel implements Initializable {
                                 caller(finalArr,myNum);
                                 try {
                                     id=arr1.getJSONObject(myNum).getInt("id");
+                                    courseId=id;
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
@@ -221,31 +413,17 @@ public class Panel implements Initializable {
                 }
             });
             myservice.start();
-    }catch (JSONException e){
+        }catch (JSONException e){
             e.printStackTrace();
         }
     }
     public void caller(JSONArray finalArr,int myNum){
         HashMap<Integer,String> hashed=new HashMap<Integer, String>();
         try {
-            if(state.equals("t")){
-                bp.getChildren().removeAll(bp.getCenter());
-                FXMLLoader load1=new FXMLLoader(getClass().getResource("centerteacher.fxml"));
-                fx=load1;
-                load1.setControllerFactory(t -> new centerteacher());
-                BorderPane my=(BorderPane)load1.load();
-                bp.setCenter(my);
-            }
 
-            add.setVisible(true);
-            vbox.getChildren().clear();
-            centerteacher c1=(centerteacher) fx.getController();
-            id=finalArr.getJSONObject(myNum).getInt("id");
-            c1.empty();
-
-            state="s";
 
             FirstLineService1 myserv=new FirstLineService1("menu",finalArr.getJSONObject(myNum).getInt("id"),token);
+            myserv.start();
             myserv.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
                 @Override
                 public void handle(WorkerStateEvent ev) {
@@ -253,8 +431,9 @@ public class Panel implements Initializable {
                     try{
                         //JSONObject js=(JSONObject) ev.getSource().getValue();
                         coursebutton.setText(hash1.get(finalArr.getJSONObject(myNum).getInt("id")));
-                        course=hash1.get(finalArr.getJSONObject(myNum).getInt("id"));
                         JSONArray arr2=(JSONArray)ev.getSource().getValue();
+                        Panel.assignmentss=arr2;
+                        Panel.assignmentss=arr2;
                         int len=arr2.length();
 
                         String [] names=new String[len];
@@ -271,7 +450,7 @@ public class Panel implements Initializable {
                             dead[in]=deadlines[in].substring(0,16);
                             dead[in]=deadlines[in].substring(0,10)+" "+deadlines[in].substring(11,16);
                         }
-                        display(len,names,ids,dead);}
+                        display(len,names,ids,dead,arr2);}
                     catch (JSONException o){
                         o.printStackTrace();
                     }
@@ -280,7 +459,29 @@ public class Panel implements Initializable {
 
                 }
             });
-            myserv.start();
+            Thread.sleep(11);
+
+            if(state.equals("t")){
+                bp.getChildren().removeAll(bp.getCenter());
+                FXMLLoader load1=new FXMLLoader(getClass().getResource("centerteacher.fxml"));
+                fx=load1;
+                load1.setControllerFactory(t -> new centerteacher(token));
+                BorderPane my=(BorderPane)load1.load();
+                bp.setCenter(my);
+            }
+
+            add.setVisible(true);
+            vbox.getChildren().clear();
+            centerteacher c1=(centerteacher) fx.getController();
+            id=finalArr.getJSONObject(myNum).getInt("id");
+            c1.empty();
+
+            state="s";
+
+
+
+
+
 
 
         } catch (JSONException e) {
@@ -288,12 +489,15 @@ public class Panel implements Initializable {
         }
         catch (IOException e){
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
 
     }
-    public void display(int num,String[] names,int[] ids,String[] deadlines){
+    public void display(int num,String[] names,int[] ids,String[] deadlines,JSONArray arr2){
         //centerteacher c2=(centerteacher) fx.getController();
+        Panel.assignmentss=arr2;
         ToggleGroup assignments = new ToggleGroup();
         assignment=assignments;
         int i=0;
@@ -321,6 +525,7 @@ public class Panel implements Initializable {
                     butt[finalN].setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
+                            assid=finalN;
 
                             Getters g2=new Getters();
                             JSONArray sub=(JSONArray) eve.getSource().getValue();
@@ -335,6 +540,7 @@ public class Panel implements Initializable {
                                     load1.setControllerFactory(t -> new centerteacher(token));
                                     BorderPane my=(BorderPane)load1.load();
                                     centerteacher cn=(centerteacher)load1.getController();
+                                    c2=cn;
                                     cn.setAssName(names[temp]);
                                     cn.setAssNo("Assignment "+(temp+1));
                                     System.out.println(names[temp]);
@@ -346,6 +552,7 @@ public class Panel implements Initializable {
                                 }
 
                                 c2=(centerteacher)fx.getController();
+
                                 c2.setAssName(names[temp]);
                                 System.out.println("Chalo");
                                 c2.setAssNo("Assignment "+(temp+1));
@@ -383,7 +590,7 @@ public class Panel implements Initializable {
             fs.start();
 
         }
-}
+    }
     public void modify(){
         ToggleButton button=new ToggleButton();
         button.setToggleGroup(assignment);
@@ -394,6 +601,7 @@ public class Panel implements Initializable {
             @Override
             public void handle(WorkerStateEvent event) {
                 JSONArray array=(JSONArray)event.getSource().getValue();
+                assignmentss=array;
                 int leng=array.length();
                 vbox.getChildren().addAll(button);
                 try {
@@ -426,8 +634,11 @@ public class Panel implements Initializable {
                                             BorderPane my=(BorderPane)load1.load();
                                             bp.setCenter(my);
                                         }
+                                        assid=leng-1;
                                         c2=(centerteacher)fx.getController();
                                         c2.setAssName(name);
+
+                                        System.out.println(assid);
                                         c2.setAssNo("Assignment "+(leng+1));
                                         c2.setDeadline(deadline1);
                                         centerteacher c1=(centerteacher) fx.getController();
@@ -524,7 +735,19 @@ public class Panel implements Initializable {
             delay = delay+(3*inc);
         }
 
-}
+    }
+    public static void  updateAssignments(){
+        FirstLineService1 first=new FirstLineService1("menu",courseId,token);
+        first.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                assignmentss=(JSONArray)event.getSource().getValue();
+                System.out.println(assignmentss);
+
+            }
+        });
+        first.start();
+    }
 
     public void settingAction(Button b, String name, String cms, String date, int subId){
         b.setOnAction(new EventHandler<ActionEvent>() {
@@ -557,7 +780,7 @@ public class Panel implements Initializable {
 
                             loader.setControllerFactory(t ->new Dialog1Controller(name,cms,date,myjson,(centerteacher)fx.getController(),token,subId) );
                             Dialog1Controller dg=(Dialog1Controller) loader.getController();
-                           // dg.subId=subId;
+                            // dg.subId=subId;
                             Parent root=loader.load();
                             dialog.getDialogPane().setContent(root);
 
@@ -581,14 +804,14 @@ public class Panel implements Initializable {
 
     public HashMap<String,Integer> getCourses(){
 
-                return coursesh;
+        return coursesh;
+
+    }
+
 
 }
 
-
-}
-
- class FirstLineService extends Service<JSONObject> {
+class FirstLineService extends Service<JSONObject> {
     String route;
     int id;
     String token;
@@ -612,18 +835,35 @@ public class Panel implements Initializable {
         this.token=token;
         this.params=params;
     }
+    FirstLineService(String route,String token,JSONObject params,int id){
+        this.route=route;
+        this.token=token;
+        this.params=params;
+        this.id=id;
+    }
+
 
     protected Task<JSONObject> createTask() {
 
         if(route.equals("subid")){
             return new Task<JSONObject>() {
-            protected JSONObject call()
-                    throws IOException, MalformedURLException, JSONException {
-                Getters g=new Getters();
-                JSONObject result=g.subDetails(id,token);
-                return result;
-            }
-        };
+                protected JSONObject call()
+                        throws IOException, MalformedURLException, JSONException {
+                    Getters g=new Getters();
+                    JSONObject result=g.subDetails(id,token);
+                    return result;
+                }
+            };
+        }
+        else if(route.equals("edit")){
+            return new Task<JSONObject>() {
+                protected JSONObject call()
+                        throws IOException, MalformedURLException, JSONException {
+                    UserAuth us=new UserAuth("admin/assignment/edit/"+id);
+                    us.setAccessToken(token);
+                    JSONObject response=us.auth(params);
+                    return response;
+                }};
         }
         else if(route.equals("newAss")){
 
@@ -674,15 +914,16 @@ class FirstLineService1 extends Service<JSONArray> {
     }
 
 
-    FirstLineService1(String route,String token,JSONObject params){
+    FirstLineService1(String route,String token,JSONObject params,int id){
         this.route=route;
         this.token=token;
         this.params=params;
     }
 
+
     protected Task<JSONArray> createTask() {
 
-       if(route.equals("courses")){
+        if(route.equals("courses")){
             return new Task<JSONArray>() {
                 protected JSONArray call()
                         throws IOException, MalformedURLException, JSONException {
@@ -691,30 +932,32 @@ class FirstLineService1 extends Service<JSONArray> {
                     return courses;
                 }};
         }
-       else if(route.equals("menu")){
-           return new Task<JSONArray>() {
-               @Override
-               protected JSONArray call() throws Exception {
-                   Getters g2=new Getters();
-                   JSONArray  sub=g2.assignments(id,token);
-                   return sub;
-               }
-           };
-        }
-       else if(route.equals("subs")){
-           return new Task<JSONArray>() {
-               @Override
-               protected JSONArray call() throws Exception {
-                   Getters g2=new Getters();
-                   JSONArray sub=g2.submissions(id,token);
-                   return sub;
-               }
-           };
-       }
 
-       else {
-           return null;
-       }
+        else if(route.equals("menu")){
+            return new Task<JSONArray>() {
+                @Override
+                protected JSONArray call() throws Exception {
+                    Getters g2=new Getters();
+                    JSONArray  sub=g2.assignments(id,token);
+                    Panel.assignmentss=sub;
+                    return sub;
+                }
+            };
+        }
+        else if(route.equals("subs")){
+            return new Task<JSONArray>() {
+                @Override
+                protected JSONArray call() throws Exception {
+                    Getters g2=new Getters();
+                    JSONArray sub=g2.submissions(id,token);
+                    return sub;
+                }
+            };
+        }
+
+        else {
+            return null;
+        }
 
         /*else if(route.equals("subs")){
             return new Task<JSONObject>() {
@@ -744,4 +987,4 @@ class FirstLineService1 extends Service<JSONArray> {
     }*/
 
 
-}}
+    }}

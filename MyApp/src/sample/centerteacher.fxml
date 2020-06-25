@@ -1,89 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.centerteacher">
+<BorderPane fx:id="mainpane" prefHeight="540.0" prefWidth="720.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.centerteacher">
    <center>
-      <ScrollPane fx:id="sp" hbarPolicy="NEVER" prefHeight="682.0" prefWidth="200.0" style="-fx-border-color: #10003E; -fx-border-width: 4; -fx-background-color: #E6E6E6;" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="sp" hbarPolicy="NEVER" prefHeight="682.0" prefWidth="200.0" style="-fx-border-color: #10003E; -fx-border-width: 4; -fx-background-color: #E6E6E6;" stylesheets="@../scrollcard.css" BorderPane.alignment="CENTER">
          <content>
-            <AnchorPane fx:id="ap" minHeight="0.0" minWidth="0.0" prefHeight="463.0" prefWidth="681.0" style="-fx-background-color: #E6E6E6;">
+            <AnchorPane fx:id="ap" minHeight="0.0" minWidth="0.0" prefHeight="425.0" prefWidth="681.0" style="-fx-background-color: #E6E6E6;">
                <children>
-                  <Pane fx:id="pane" prefHeight="471.0" prefWidth="687.0" style="-fx-background-color: #E6E6E6;" />
-                  <FlowPane fx:id="fp" hgap="15.0" layoutX="-1.0" prefHeight="473.0" prefWidth="692.0" style="-fx-background-color: #E6E6E6;" vgap="15.0">
+                  <Pane fx:id="pane" prefHeight="426.0" prefWidth="687.0" style="-fx-background-color: #E6E6E6;">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor></Pane>
+                  <FlowPane fx:id="fp" hgap="15.0" layoutX="-1.0" prefHeight="163.0" prefWidth="692.0" style="-fx-background-color: #E6E6E6;" vgap="15.0">
                      <padding>
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
                   </FlowPane>
                </children>
             </AnchorPane>
          </content>
          <BorderPane.margin>
-            <Insets />
+            <Insets right="2.0" />
          </BorderPane.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ScrollPane>
    </center>
    <left>
-      <AnchorPane prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <Pane prefHeight="0.0" prefWidth="10.0">
-               <children>
-                  <ImageView fitHeight="1057.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@left.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="1057.0" fitWidth="10.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@left.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children></AnchorPane>
+      <Pane fx:id="linepane4" maxWidth="10.0" minWidth="10.0" prefHeight="491.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <AnchorPane prefHeight="491.0" prefWidth="10.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <Pane prefHeight="200.0" prefWidth="10.0">
-               <children>
-                  <ImageView fitHeight="1059.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@right.png" />
-                     </image></ImageView>
-                  <ImageView fitHeight="1059.0" fitWidth="10.0" layoutY="630.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@right.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children></AnchorPane>
+      <Pane fx:id="linepane2" maxWidth="10.0" minWidth="10.0" prefHeight="491.0" prefWidth="10.0" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <AnchorPane prefHeight="10.0" prefWidth="720.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
-         <children>
-            <Pane prefHeight="10.0" prefWidth="720.0">
-               <children>
-                  <ImageView fitHeight="10.0" fitWidth="1288.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@bottom.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="10.0" fitWidth="1288.0" layoutX="919.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@bottom.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children></AnchorPane>
+      <Pane fx:id="linepane3" maxHeight="10.0" minHeight="10.0" prefHeight="10.0" prefWidth="720.0" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
       <BorderPane prefHeight="87.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -93,14 +55,14 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="36.0" layoutX="3.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="2.5" />
                   <AnchorPane prefHeight="31.0" prefWidth="200.0">
                      <children>
-                        <Pane prefHeight="47.0" prefWidth="200.0">
+                        <Pane layoutX="-22.0" prefHeight="47.0" prefWidth="222.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="249.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" layoutX="-16.0" stroke="TRANSPARENT" strokeType="INSIDE" width="265.0" />
                            </children>
                         </Pane>
                      </children>
                   </AnchorPane>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="32.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="2.5">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0e003b" height="32.0" layoutX="-15.0" layoutY="7.0" stroke="TRANSPARENT" strokeType="INSIDE" width="2.5">
                      <effect>
                         <DropShadow height="33.2" offsetY="5.0" radius="7.800000000000001" spread="0.29" width="0.0">
                            <color>
@@ -109,14 +71,14 @@
                         </DropShadow>
                      </effect>
                   </Rectangle>
-                  <Label layoutX="15.0" layoutY="11.0" prefHeight="25.0" prefWidth="82.0" text="Deadline">
+                  <Label layoutX="-7.0" layoutY="11.0" prefHeight="25.0" prefWidth="82.0" text="Deadline">
                      <font>
                         <Font name="Square721 BT Roman" size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="deadline" depthTest="DISABLE" layoutX="105.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="135.0" style="-fx-background-color: transparent; -fx-border-color: #A60028; -fx-border-width: 2; -fx-border-radius: 4; -fx-background-insets: 0;" text="Deadline" textFill="#a60028">
+                  <Button fx:id="deadline" depthTest="DISABLE" layoutX="80.0" layoutY="7.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #A60028; -fx-border-width: 2; -fx-border-radius: 4; -fx-background-insets: 0;" text="Deadline" textFill="#a60028">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="Square721 BT Bold" size="15.0" />
                      </font>
                      <padding>
                         <Insets bottom="-1.0" left="-1.0" right="-1.0" top="-1.0" />
@@ -126,21 +88,21 @@
             </AnchorPane>
          </right>
          <left>
-            <AnchorPane maxHeight="398.0" prefHeight="0.0" prefWidth="470.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <AnchorPane maxHeight="398.0" prefHeight="47.0" prefWidth="455.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
                   <AnchorPane prefHeight="47.0" prefWidth="200.0">
                      <children>
-                        <Pane prefHeight="47.0" prefWidth="468.0">
+                        <Pane prefHeight="47.0" prefWidth="454.0">
                            <children>
-                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="468.0" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="47.0" stroke="TRANSPARENT" strokeType="INSIDE" width="440.0" />
                            </children>
                         </Pane>
-                        <Label fx:id="assNo" layoutX="12.0" layoutY="11.0" prefHeight="25.0" prefWidth="162.0" text="Assignment No">
+                        <Label fx:id="assNo" layoutX="12.0" layoutY="12.0" prefHeight="25.0" prefWidth="162.0" text="Assignment No">
                            <font>
                               <Font name="Square721 BT Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="assName" layoutX="176.0" layoutY="12.0" prefHeight="25.0" prefWidth="294.0" text="Assignment Name">
+                        <Label fx:id="assName" layoutX="172.0" layoutY="12.0" prefHeight="25.0" prefWidth="272.0" text="Assignment Name">
                            <font>
                               <Font name="Square721 BT Roman" size="20.0" />
                            </font>
@@ -152,16 +114,9 @@
          <bottom>
             <AnchorPane prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Pane prefHeight="47.0" prefWidth="200.0">
+                  <Pane fx:id="linepane1" maxHeight="47.0" minHeight="47.0" prefHeight="47.0" prefWidth="720.0" />
+                  <Pane prefHeight="47.0" prefWidth="200.0" style="-fx-background-color: transparent;">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="1275.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@top.png" />
-                           </image>
-                           <viewport>
-                              <Rectangle2D height="40.0" />
-                           </viewport>
-                        </ImageView>
                         <Label alignment="CENTER" layoutX="10.0" layoutY="24.0" prefHeight="23.0" prefWidth="109.0" style="-fx-background-color: #10003E;" text="Submissions" textFill="WHITE">
                            <font>
                               <Font name="Square721 BT Roman" size="15.0" />
@@ -170,14 +125,6 @@
                               <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                            </padding>
                         </Label>
-                        <ImageView fitHeight="41.0" fitWidth="1525.0" layoutX="377.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@top.png" />
-                           </image>
-                           <viewport>
-                              <Rectangle2D height="40.0" />
-                           </viewport>
-                        </ImageView>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1566.0">
                            <effect>
                               <DropShadow height="38.55" offsetY="5.0" radius="9.1375" spread="0.24" width="0.0">

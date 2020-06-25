@@ -27,13 +27,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-import javax.swing.text.html.HTMLDocument;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
-import java.util.*;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class testcases implements Initializable {
     int id;
@@ -50,6 +50,10 @@ public class testcases implements Initializable {
     @FXML
     private AnchorPane anchor;
     @FXML
+    private TextField lint;
+    @FXML
+    private TextField time;
+    @FXML
     private TextField tit;
     @FXML
     private TextField dead;
@@ -63,6 +67,8 @@ public class testcases implements Initializable {
     private Button test;
     @FXML
     private  Button addnew;
+    @FXML
+    BorderPane mainbpp;
 
 
 
@@ -72,6 +78,8 @@ public class testcases implements Initializable {
     String buttonState="p";
     String course;
     centerteacher cen;
+    @FXML
+    Label assNo;
     FXMLLoader loader;
     Stage primaryStage;
     FXMLLoader mainbp;
@@ -84,6 +92,7 @@ public class testcases implements Initializable {
     int num=0;
     Panel pan;
     String token;
+    String a;
     FXMLLoader pani;
 
     testcases(){
@@ -107,12 +116,13 @@ public class testcases implements Initializable {
         myBorderPane=tc.borderpane;
         this.load=load;
         this.pani=pani;
+
         pan=(Panel)pani.getController();
-
-
-
-
     }
+
+
+
+
 
 
     public String getTitle(){
@@ -131,15 +141,6 @@ public class testcases implements Initializable {
 
     }
 
-    public boolean validate(String deadline){
-        String pattern="//d//d//d//d-//d//d-//d//d//s//d//d://d//d";
-        boolean result= Pattern.matches(pattern,deadline);
-        if(result==false){
-            System.out.println("No result");
-            System.out.println(deadline);
-        }
-        return result;
-    }
 
 
 
@@ -179,7 +180,33 @@ public class testcases implements Initializable {
 
     public int getIndex(ArrayList<Button> a,Button butt){
         System.out.println(a.indexOf(butt));
-      return a.indexOf(butt);
+        return a.indexOf(butt);
+    }
+
+    public double getTime() throws Exception{
+        try{
+            double number=Double.parseDouble(time.getText());
+            return number;
+        }
+        catch (Exception ex){
+            throw new Exception("Enter valid time constraints");
+        }
+
+    }
+
+    public double getLint(){
+        try{
+            double per=Double.parseDouble(lint.getText());
+            if(per>100){
+                throw new TitleEx("Linting weightage should be less than 100");
+            }
+            else{
+                return per;
+            }
+        }catch(NumberFormatException ex){
+            throw new NumberFormatException("Enter a valid weightage for Linting");
+        }
+
     }
 
 
@@ -210,61 +237,67 @@ public class testcases implements Initializable {
         addnew.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-            try{
                 try{
+                    try{
 
-                    newassignment.put("deadline",getDead());
-                    newassignment.put("title",getTitle());
+                        newassignment.put("deadline",getDead());
+                        newassignment.put("title",getTitle());
 
-                    HashMap<String,Integer> hashed=pan.getCourses();
-                    int id=hashed.get(course);
-                    newassignment.put("group_id",id);
-                    newassignment.put("test_cases",TestCase.returner(testcase));
-                    FirstLineService firstLineService=new FirstLineService("newAss",token,newassignment);
-                    firstLineService.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                        @Override
-                        public void handle(WorkerStateEvent event) { ;
-                            JSONObject response=(JSONObject) event.getSource().getValue();
-                            System.out.println(newassignment.toString());
-                            System.out.println(testcase.toString());
-                            if(response.equals("success")){
-                                System.out.println("Assignment uploaded!");
+                        //HashMap<String,Integer> hashed=pan.getCourses();
+                        //int id=hashed.get(course);
+                        newassignment.put("group_id",Panel.courseId);
+                        newassignment.put("test_cases",TestCase.returner(testcase));
+                        newassignment.put("linting",getLint());
+                        newassignment.put("time_limit",getTime());
+                        FirstLineService firstLineService=new FirstLineService("newAss",token,newassignment);
+                        firstLineService.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+                            @Override
+                            public void handle(WorkerStateEvent event) { ;
+                                JSONObject response=(JSONObject) event.getSource().getValue();
+                                System.out.println(newassignment.toString());
+                                System.out.println(testcase.toString());
+                                if(response.equals("success")){
+                                    System.out.println("Assignment uploaded!");
+                                }
+
+
+                                //Clearing the components of testcase window
+                                tit.clear();
+                                dead.clear();
+                                testfp.getChildren().removeAll(testfp.getChildren());
+                                pan.modify();
+
+
+                                for(int i=0;i<testcase.length();i++){
+                                    testcase.remove(i);
+                                }
+                                num=0;
+
                             }
+                        });
+                        firstLineService.start();
 
-
-                            //Clearing the components of testcase window
-                            tit.clear();
-                            dead.clear();
-                            testfp.getChildren().removeAll(testfp.getChildren());
-                            pan.modify();
-
-
-                            for(int i=0;i<testcase.length();i++){
-                                testcase.remove(i);
-                            }
-                            num=0;
-
-                        }
-                    });
-                    firstLineService.start();
+                    }
+                    catch (JSONException e){
+                        e.printStackTrace();
+                    }
 
                 }
-                catch (JSONException e){
+                catch(TitleEx ex){
+                    System.out.println(ex);
+                    ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
+                    eb.showDialogue();
+                }
+                catch (NullPointerException e){
                     e.printStackTrace();
                 }
+                catch (Exception ex){
+                    System.out.println(ex);
 
-            }
-            catch(TitleEx ex){
-                System.out.println(ex);
-                ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
-                eb.showDialogue();
-            }
-            catch (Exception ex){
-                System.out.println(ex);
-                ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
-                eb.showDialogue();
+                    ErrorBox eb=new ErrorBox("ERROR",ex.getMessage(),myBorderPane);
+                    eb.showDialogue();
 
-            }
+                }
 
 
             }
@@ -472,48 +505,48 @@ public class testcases implements Initializable {
             public void handle(ActionEvent event) {
                 if(buttonState.equals("p")){
 
-                ColorAdjust dim = new ColorAdjust();
+                    ColorAdjust dim = new ColorAdjust();
 
-                dim.setBrightness(-0.3);
-                dim.setSaturation(-0.3);
-                dim.setContrast(-0.3);
-                BoxBlur blur = new BoxBlur(3,3,3);
-                System.out.println("click");
-                Dialog<ButtonType> dialog = new Dialog<>();
-                dialog.initOwner(myBorderPane.getScene().getWindow());
-
-
-                dialog.initStyle(StageStyle.UNDECORATED);
-                blur.setInput(dim);
-                myBorderPane.setEffect(blur);
-
-                try {
-
-                    FXMLLoader mine=new FXMLLoader(getClass().getResource("dialougueBox.fxml"));
-                    int index= getIndex(testcases,butt);
-                    mine.setControllerFactory(t ->new DialogController(load,index));
-                    Parent root1=mine.load();
-                    DialogController myDg=(DialogController)mine.getController();
-                    dialog.getDialogPane().setContent(root1);
+                    dim.setBrightness(-0.3);
+                    dim.setSaturation(-0.3);
+                    dim.setContrast(-0.3);
+                    BoxBlur blur = new BoxBlur(3,3,3);
+                    System.out.println("click");
+                    Dialog<ButtonType> dialog = new Dialog<>();
+                    dialog.initOwner(myBorderPane.getScene().getWindow());
 
 
-                    myDg.setInt(testcase.getJSONObject(index).getString("input"));
-                    myDg.setOut(testcase.getJSONObject(index).getString("output"));
+                    dialog.initStyle(StageStyle.UNDECORATED);
+                    blur.setInput(dim);
+                    myBorderPane.setEffect(blur);
+
+                    try {
+
+                        FXMLLoader mine=new FXMLLoader(getClass().getResource("dialougueBox.fxml"));
+                        int index= getIndex(testcases,butt);
+                        mine.setControllerFactory(t ->new DialogController(load,index));
+                        Parent root1=mine.load();
+                        DialogController myDg=(DialogController)mine.getController();
+                        dialog.getDialogPane().setContent(root1);
+
+
+                        myDg.setInt(testcase.getJSONObject(index).getString("input"));
+                        myDg.setOut(testcase.getJSONObject(index).getString("output"));
 
 
 
 
-                } catch(IOException | JSONException e){
-                    System.out.println("Unable to load Dialogue Box");
+                    } catch(IOException | JSONException e){
+                        System.out.println("Unable to load Dialogue Box");
 
-                }
-                Optional<ButtonType> result = dialog.showAndWait();
-                if(result.isPresent()){
-                    //nothing
-                }
-                else{
-                    myBorderPane.setEffect(null);
-                }}else{
+                    }
+                    Optional<ButtonType> result = dialog.showAndWait();
+                    if(result.isPresent()){
+                        //nothing
+                    }
+                    else{
+                        myBorderPane.setEffect(null);
+                    }}else{
                     buttonState="p";
                 }
             }
